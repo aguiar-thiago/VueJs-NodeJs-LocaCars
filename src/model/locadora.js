@@ -8,7 +8,7 @@ class Produto {
       console.log(resolve)
     })
     .catch((err)=>{
-      console.log(err)
+      console.log(err) 
     })
   }
 
