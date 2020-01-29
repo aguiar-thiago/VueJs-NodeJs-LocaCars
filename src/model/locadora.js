@@ -2,7 +2,7 @@ import conexaoCallCenter from '../lib/ConexaoCallCenter'
 
 class Produto {
 
-  insereUsuario (dados, tabela) {
+  insert (dados, tabela) {
     conexaoCallCenter.insert(dados, tabela)
     .then((resolve)=>{
       console.log(resolve)
@@ -12,7 +12,7 @@ class Produto {
     })
   }
 
-  deletaUsuario (where, tabela) {
+  delete (where, tabela) {
     conexaoCallCenter.delete(where, tabela)
     .then((resolve)=>{
       console.log(resolve)
@@ -22,8 +22,18 @@ class Produto {
     })
   }
 
-  atualizaProduto () {
-    conexaoCallCenter.update(where, tabela)
+  update (campos, tabela, where) {
+    conexaoCallCenter.update(campos, tabela, where)
+    .then((resolve)=>{
+      console.log(resolve)
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+  }
+
+  Filter (campos, tabela, where) {
+    conexaoCallCenter.select(campos, tabela, where)
     .then((resolve)=>{
       console.log(resolve)
     })

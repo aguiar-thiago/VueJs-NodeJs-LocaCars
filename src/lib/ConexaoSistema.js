@@ -1,4 +1,4 @@
-const Conexao = require('./Conexao')
+import Conexao from './Conexao'
 
 const dadosConexao = {
   host: '192.168.1.60',

@@ -1,4 +1,4 @@
-const mySql = require('mysql')
+import mySql from 'mysql'
 
 class Conexao {
   constructor(dadosConexao) {
@@ -65,9 +65,22 @@ class Conexao {
     })
   }
 
-  update (where, tabela) {
+  update (campos, tabela, where) {
     return new Promise((resolve, reject) => {
-      this.conexao.query(`UPDATE ${tabela} WHERE ?`, where, (err, sucess) => {
+      this.conexao.query(`UPDATE ${tabela} SET ? WHERE ${where}`, campos, (err, sucess) => {
+        if (err){
+          console.log('Erro  === '+err)
+          reject(err)
+          return
+        }
+        resolve(sucess)
+      })
+    })
+  }
+
+  select (campos, tabela, where) {
+    return new Promise((resolve, reject) => {
+      this.conexao.query(`SELECT ${campos} FROM ${tabela} WHERE ?`, where, (err, sucess) => {
         if (err){
           console.log('Erro  === '+err)
           reject(err)

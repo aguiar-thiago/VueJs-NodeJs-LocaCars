@@ -1,11 +1,11 @@
 import {Router} from 'express'
-import controllerMercado from '../controller/controllerMercado'
+import controllerLocadora from '../controller/controllerLocadora'
 
 const routes = new Router()
 
-routes.get('/Cadastrar', controllerMercado.InsertUser)
-routes.get('/Deletar', controllerMercado.DeleteUser)
-routes.get('/Atualizar', controllerMercado.UpdateUser)
-
+routes.get('/Cadastrar', controllerLocadora.Insert)
+routes.get('/Deletar', controllerLocadora.Delete)
+routes.get('/Atualizar', controllerLocadora.Update)
+routes.get('/Pesquisar', controllerLocadora.Filter)
 
 export default routes
