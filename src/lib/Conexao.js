@@ -6,7 +6,6 @@ class Conexao {
     this.conexao.connect((err) => {
       if (err) {
         console.log('Erro ao conectar o BD...', err)
-        return
       }
       console.log('Conectado!')
     })
@@ -17,7 +16,6 @@ class Conexao {
       this.conexao.query(query, (error, campos) => {
       if (error) {
         reject(console.log('Erro  ===  ' + error))
-        return
       }
       console.log('Query executada com sucesso!')
       resolve(campos)
@@ -31,7 +29,6 @@ class Conexao {
         if (err) {
           console.log('Erro ao Finalizar a conexao...', err)
           reject(err)
-          return
         }
         console.log('Conexao Finalizada...')
         resolve(sucesso)
@@ -45,7 +42,6 @@ class Conexao {
         if (err){
           console.log('Erro  === '+ err)
           reject(err)
-          return
         }
         resolve(sucess)
       })
@@ -71,7 +67,6 @@ class Conexao {
         if (err){
           console.log('Erro  === '+err)
           reject(err)
-          return
         }
         resolve(sucess)
       })
@@ -84,7 +79,6 @@ class Conexao {
         if (err){
           console.log('Erro  === '+err)
           reject(err)
-          return
         }
         resolve(sucess)
       })

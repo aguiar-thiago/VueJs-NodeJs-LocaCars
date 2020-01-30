@@ -1,44 +1,60 @@
-import conexaoCallCenter from '../lib/ConexaoLocadora'
+import conexaoCallCenter from '../lib/ConexaoCallCenter'
 
 class Carros {
 
   insert (dados, tabela) {
-      conexaoCallCenter.insert(dados, tabela)
-      .then((data)=>{
-        console.log(data)
+    return new Promise((resolve, reject) => {
+      var status = conexaoCallCenter.insert(dados, tabela)
+
+      status
+      .then((data) => {
+        resolve(data)
       })
-      .catch((err)=>{
-        console.log(err)
+      .catch((err) => {
+        reject(err)
       })
+    })
   }
 
   delete (where, tabela) {
-    conexaoCallCenter.delete(where, tabela)
-    .then((resolve)=>{
-      console.log(resolve)
-    })
-    .catch((err)=>{
-      console.log(err)
+    return new Promise ((resolve, reject) => {
+      var status = conexaoCallCenter.delete(where, tabela)
+
+      status
+      .then((data)=>{
+        resolve(data)
+      })
+      .catch((err)=>{
+        reject(err)
+      })
     })
   }
 
   update (campos, tabela, where) {
-    conexaoCallCenter.update(campos, tabela, where)
-    .then((resolve)=>{
-      return resolve
-    })
-    .catch((err)=>{
-      console.log(err)
+    return new Promise ((resolve, reject) => {
+      var status = conexaoCallCenter.update(campos, tabela, where)
+
+      status
+      .then((data)=>{
+         resolve(data)
+      })
+      .catch((err)=>{
+        reject(err)
+      })
     })
   }
 
   Filter (campos, tabela, where) {
-    conexaoCallCenter.select(campos, tabela, where)
-    .then((resolve)=>{
-      console.log(resolve)
-    })
-    .catch((err)=>{
-      console.log(err)
+    return new Promise ((resolve, reject) => {
+      var status = conexaoCallCenter.select(campos, tabela, where)
+
+      status
+      .then((data)=>{
+        resolve(data)
+      })
+      .catch((err)=>{
+        reject(err)
+      })
     })
   }
 
