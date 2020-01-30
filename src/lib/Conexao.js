@@ -43,7 +43,7 @@ class Conexao {
     return new Promise((resolve, reject) => {
       this.conexao.query(`INSERT INTO ${tabela} SET ?`, campos, (err, sucess) => {
         if (err){
-          console.log('Erro  === '+err)
+          console.log('Erro  === '+ err)
           reject(err)
           return
         }

@@ -2,22 +2,26 @@ import locadora from '../model/locadora'
 
 module.exports = {
 
-  Insert (req, res) {
+  async Insert (req, res) {
     let dados = req.body
-    locadora.insert(dados, 'TesteRangel')
-    res.json('Cadastrado')
+
+    if (dados["placa"] == "") {
+      res.json("Placa nao pode se vazia ")
+    }
+    res.json("Placa nao pode se vazia ")
+    locadora.insert(dados, 'tb_carros')
   },
 
   Delete (req, res) {
     let where = req.body.id
-    locadora.delete(where, 'TesteRangel')
+    locadora.delete(where, 'tb_carros')
     res.json('Deletado')
   },
 
   Update (req, res) {
     let where = req.body.id
     let campos = req.body.campos
-    var teste =  locadora.update(campos, 'TesteRangel', where)
+    var teste =  locadora.update(campos, 'tb_carros', where)
 
     res.json('Atualizado')
   },
@@ -25,7 +29,7 @@ module.exports = {
   Filter (req, res) {
     let where = req.body.id
     let campos = req.body.campos
-    locadora.select(campos, 'TesteRangel', where)
+    locadora.select(campos, 'tb_carros', where)
     res.json('retorno do select')
   }
 

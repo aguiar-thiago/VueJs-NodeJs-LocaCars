@@ -1,15 +1,15 @@
-import conexaoCallCenter from '../lib/ConexaoCallCenter'
+import conexaoCallCenter from '../lib/ConexaoLocadora'
 
-class Produto {
+class Carros {
 
   insert (dados, tabela) {
-    conexaoCallCenter.insert(dados, tabela)
-    .then((resolve)=>{
-      console.log(resolve)
-    })
-    .catch((err)=>{
-      console.log(err) 
-    })
+      conexaoCallCenter.insert(dados, tabela)
+      .then((data)=>{
+        console.log(data)
+      })
+      .catch((err)=>{
+        console.log(err)
+      })
   }
 
   delete (where, tabela) {
@@ -25,7 +25,7 @@ class Produto {
   update (campos, tabela, where) {
     conexaoCallCenter.update(campos, tabela, where)
     .then((resolve)=>{
-      console.log(resolve)
+      return resolve
     })
     .catch((err)=>{
       console.log(err)
@@ -45,4 +45,4 @@ class Produto {
 }
 
 
-export default new Produto
+export default new Carros
