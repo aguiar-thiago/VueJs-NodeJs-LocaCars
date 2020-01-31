@@ -11,7 +11,7 @@ import Formulario from './components/form/Formulario.vue'
 export default {
   name: 'app',
   components: {Formulario}
-  
+
 }
 </script>
 
