@@ -62,6 +62,11 @@ module.exports = {
       console.log(err)
       res.json(err)
     })
+  },
+
+  Home (req, res) {
+
+
   }
 
 }
