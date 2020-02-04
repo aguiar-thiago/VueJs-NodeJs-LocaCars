@@ -2,71 +2,32 @@ import locadora from '../model/locadora'
 
 module.exports = {
 
-  Insert (req, res) {
-    let dados = req.body
-    let result = locadora.insert(dados, 'tb_carros')
-
-    result
-    .then((data) => {
-      console.log(data)
-      res.json(data)
-    })
-    .catch((reject) => {
-      console.log(reject)
-      res.json(reject)
+  async insert (req, res) {
+    await locadora.Insert(req.body, function (err, result){
+      if (err) res.json(err)
+      res.json(result)
     })
   },
 
-  Delete (req, res) {
-    let where = req.body.id
-    var result = locadora.delete(where, 'tb_carros')
-
-    result
-    .then((data) => {
-      console.log(data)
-      res.json(data)
-    })
-    .catch((reject) => {
-      console.log(reject)
-      res.json(reject)
+  async delete (req, res) {
+    await locadora.Delete(req.body, function (err, result){
+      if (err) res.json(err)
+      res.json(result)
     })
   },
 
-  Update (req, res) {
-    let where = req.body.id
-    let campos = req.body.campos
-    var result = locadora.update(campos, 'tb_carros', where)
-
-    result
-    .then((data) => {
-      console.log(data)
-      res.json(data)
-    })
-    .catch((reject) => {
-      console.log(reject)
-      res.json(reject)
+  async update (req, res) {
+    await locadora.Update(req.body, function (err, result){
+      if (err) res.json(err)
+      res.json(result)
     })
   },
 
-  Filter (req, res) {
-    let where = req.body.placa
-    let campos = "placa, marca, cor, nome, ano"
-    var result = locadora.Filter(campos, 'tb_carros', where)
-
-    result
-    .then((data) => {
-      console.log(data)
-      res.json(data)
+  async filter (req, res) {
+    await locadora.Filter(req.body, function (err, result){
+      if (err) res.json(err)
+      res.json(result)
     })
-    .catch((err) => {
-      console.log(err)
-      res.json(err)
-    })
-  },
-
-  Home (req, res) {
-
-
   }
 
 }

@@ -1,64 +1,26 @@
-import conexaoCallCenter from '../lib/ConexaoCallCenter'
+import conexaoCallCenter from '../lib/Conexao'
 
-class Carros {
-
-  insert (dados, tabela) {
-    return new Promise((resolve, reject) => {
-      var status = conexaoCallCenter.insert(dados, tabela)
-
-      status
-      .then((data) => {
-        resolve(data)
-      })
-      .catch((err) => {
-        reject(err)
-      })
-    })
+class Carros extends conexaoCallCenter {
+  constructor () {
+    super()
+    this.idtable = "tb_carros"
   }
 
-  delete (where, tabela) {
-    return new Promise ((resolve, reject) => {
-      var status = conexaoCallCenter.delete(where, tabela)
-
-      status
-      .then((data)=>{
-        resolve(data)
-      })
-      .catch((err)=>{
-        reject(err)
-      })
-    })
+  async Insert (data, callback) {
+    await conexaoCallCenter.insert(data, this.idtable, callback)
   }
 
-  update (campos, tabela, where) {
-    return new Promise ((resolve, reject) => {
-      var status = conexaoCallCenter.update(campos, tabela, where)
-
-      status
-      .then((data)=>{
-         resolve(data)
-      })
-      .catch((err)=>{
-        reject(err)
-      })
-    })
+  async Delete (data, callback) {
+    await conexaoCallCenter.delete(data.where, this.idtable, callback)
   }
 
-  Filter (campos, tabela, where) {
-    return new Promise ((resolve, reject) => {
-      var status = conexaoCallCenter.select(campos, tabela, where)
-
-      status
-      .then((data)=>{
-        resolve(data)
-      })
-      .catch((err)=>{
-        reject(err)
-      })
-    })
+  async Update (data, callback) {
+    await conexaoCallCenter.update(data.campos, data.where, this.idtable, callback)
   }
 
+  async Filter (data, callback) {
+    await conexaoCallCenter.select(data.where, this.idtable, callback)
+  }
 }
 
-
-export default new Carros
+export default new Carros()
