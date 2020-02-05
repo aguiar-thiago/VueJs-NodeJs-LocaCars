@@ -1,18 +1,20 @@
 import mySql from 'mysql'
+import 'dotenv/config'
 
 class Conexao {
   constructor() {
-    this.conexao = mySql.createConnection(
-      host = process.env.DB_HOST,
-      user =  process.env.DB_USER,
-      password = process.env.DB_PASS,
-      database = process.env.DB_DATABASE,
-      port = process.env.DB_PORT,
-      insecureAuth =  process.env.DB_INSECUREAUTH
-    )
+    this.conexao = mySql.createConnection({
+      host : process.env.DB_HOST,
+      user :  process.env.DB_USER,
+      password : process.env.DB_PASS,
+      database : process.env.DB_DATABASE,
+      port : process.env.DB_PORT,
+      insecureAuth : process.env.DB_INSECUREAUTH
+    })
     this.conexao.connect((err) => {
       if (err) {
         console.log('Erro ao conectar o BD...', err)
+        return
       }
       console.log('Conectado!')
     })

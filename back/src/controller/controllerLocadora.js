@@ -1,30 +1,30 @@
-import locadora from '../model/locadora'
+import locadora from '../model/ModelCarros'
 
 module.exports = {
 
-  async insert (req, res) {
-    await locadora.Insert(req.body, function (err, result){
+  insert (req, res) {
+    locadora.Insert(req.body, function (err, result){
       if (err) res.json(err)
       res.json(result)
     })
   },
 
-  async delete (req, res) {
-    await locadora.Delete(req.body, function (err, result){
+  delete (req, res) {
+    locadora.Delete(req.body, function (err, result){
       if (err) res.json(err)
       res.json(result)
     })
   },
 
-  async update (req, res) {
-    await locadora.Update(req.body, function (err, result){
+  update (req, res) {
+    locadora.Update(req.body, function (err, result){
       if (err) res.json(err)
       res.json(result)
     })
   },
 
-  async filter (req, res) {
-    await locadora.Filter(req.body, function (err, result){
+  filter (req, res) {
+    locadora.Filter(req.body, function (err, result){
       if (err) res.json(err)
       res.json(result)
     })

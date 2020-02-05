@@ -1,5 +1,8 @@
 <template>
-  <form id="app" action="/Cadastrar" method="post">
+  <form id="app" method="post">
+    <pre>
+      {{result}}
+    </pre>
     <div>
       <label for="placa">Placa: </label>
       <input type="text" id="placaVeiculo" v-model="placa">
@@ -24,7 +27,7 @@
       <label for="ano">Ano de Fabricacao: </label>
       <input type="text" id="anoVeiculo" v-model="ano">
     </div>
-    <button type="buttom" class="salvar">Salvar</button>
+    <button type="button" v-on:click="submitForm" class="salvar">Salvar</button>
   </form>
 
 </template>
@@ -32,6 +35,7 @@
 
 
 <script>
+import axios from 'axios';
 export default {
   name: 'Formulario',
   props: {
@@ -43,13 +47,27 @@ export default {
       nome : '',
       marca : '',
       cor: '',
-      ano : ''
+      ano : '',
+      result: '',
     }
   },
-  methodos:{
-    submit () {
-      this.$router.push("/Cadastrar"+this.data)
-    }
+  methods: {
+      async submitForm () {
+       const service = axios.create({
+          baseURL: 'http://localhost:3001/'
+        })
+
+        const form = {
+          placa: this.placa,
+          nome: this.nome,
+          cor: this.cor,
+          ano : this.ano 
+        }
+
+        const response  = await service.post('Cadastrar', form)
+          this.result = response
+      }
+
   }
 }</script>
 
