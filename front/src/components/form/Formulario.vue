@@ -35,39 +35,24 @@
 
 
 <script>
-import axios from 'axios';
+import Carros from '../../service/carros'
+
 export default {
   name: 'Formulario',
   props: {
     msg: String
   },
-  data: function() {
-    return{
-      placa : '',
-      nome : '',
-      marca : '',
-      cor: '',
-      ano : '',
-      result: '',
-    }
-  },
   methods: {
       async submitForm () {
-       const service = axios.create({
-          baseURL: 'http://localhost:3001/'
-        })
-
         const form = {
           placa: this.placa,
           nome: this.nome,
+          marca: this.marca,
           cor: this.cor,
-          ano : this.ano 
+          ano : this.ano
         }
-
-        const response  = await service.post('Cadastrar', form)
-          this.result = response
+         Carros.Post(form)
       }
-
   }
 }</script>
 
