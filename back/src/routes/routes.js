@@ -5,7 +5,7 @@ const routes = new Router()
 
 routes.post('/Cadastrar', controllerLocadora.insert)
 routes.get('/Deletar', controllerLocadora.delete)
-routes.get('/Atualizar', controllerLocadora.update)
+routes.put('/Atualizar', controllerLocadora.update)
 routes.get('/Pesquisar', controllerLocadora.filter)
 
 export default routes

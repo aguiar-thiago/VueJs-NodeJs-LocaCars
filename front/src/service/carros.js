@@ -1,7 +1,12 @@
 import {http} from './config'
 
 export default {
-  Post:(data) => {
-     return http.post('Cadastrar', data)
+  salvar:(carro) => {
+     return http.post('Cadastrar', carro)
+  },
+
+  atualizar: (carro) => {
+    return http.put('Atualizar', carro)
   }
+
 }
