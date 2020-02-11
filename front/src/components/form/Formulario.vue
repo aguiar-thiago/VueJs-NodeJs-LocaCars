@@ -1,33 +1,36 @@
 <template>
-  <form id="app" method="post">
-    <fieldset>
-      <div>
+  <form id="app" method="post" class="container">
+    <div class="row justify-content-center">
+      <div class="form-group col-7">
         <label for="placa">Placa: </label>
-        <input type="text" id="placaVeiculo" v-model="carro.placa">
+        <input type="text" class="form-control " id="placaVeiculo" v-model="carro.placa">
       </div>
 
-      <div>
+      <div class="form-group col-7">
         <label for="nome">Nome: </label>
-        <input type="text" id="nomeVeiculo" v-model="carro.nome">
+        <input type="text" class="form-control " id="nomeVeiculo" v-model="carro.nome">
       </div>
 
-      <div>
+      <div class="form-group col-7">
         <label for="marca">Marca: </label>
-        <input type="text" id="marcaVeiculo" v-model="carro.marca">
+        <input type="text" class="form-control " id="marcaVeiculo" v-model="carro.marca">
       </div>
 
-      <div>
+      <div class="form-group col-7">
         <label for="cor">Cor: </label>
-        <input type="text" id="corVeiculo" v-model="carro.cor">
+        <input type="text" class="form-control " id="corVeiculo" v-model="carro.cor">
       </div>
 
-      <div>
+      <div class="form-group col-7">
         <label for="ano">Ano de Fabricacao: </label>
-        <input type="text" id="anoVeiculo" v-model="carro.ano">
+        <input type="text" class="form-control " id="anoVeiculo" v-model="carro.ano">
       </div>
 
-      <button type="button" v-on:click="salvar" class="salvar">Salvar</button>
-    </fieldset>
+       <div class="form-group col-7">
+         <button class="btn btn-primary" type="button" v-on:click="salvar">Salvar</button>
+      </div>
+
+    </div>
   </form>
 </template>
 
