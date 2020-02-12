@@ -36,11 +36,12 @@ class Conexao {
 
   async update (campos, where, tabela, callback) {
     const format = await this.conexao.format(`UPDATE ${tabela} SET ? WHERE ?`, [campos, where])
+    console.log(format)
     await this.conexao.query(format, callback)
   }
 
   async select (where, tabela, callback) {
-    const format = await this.conexao.format(`SELECT placa, marca, cor, nome, ano FROM ${tabela} WHERE ?`, where)
+    const format = await this.conexao.format(`SELECT placa, marca, cor, nome, ano, situacao FROM ${tabela} WHERE ?`, where)
     await this.conexao.query(format, callback)
   }
 

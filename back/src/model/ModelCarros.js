@@ -15,11 +15,11 @@ class Carros extends Conexao {
   }
 
   async Update (data, callback) {
-    await super.update(data.campos, data.where, this.idtable, callback)
+    await super.update(data, data, this.idtable, callback)
   }
 
   async Filter (data, callback) {
-    await super.select(data.where, this.idtable, callback)
+    await super.select(data, this.idtable, callback)
   }
 }
 

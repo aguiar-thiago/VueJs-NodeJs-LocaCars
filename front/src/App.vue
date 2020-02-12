@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <Formulario/>
+    <FormularioUpdate/>
   </div>
 </template>
 
 <script>
-//import HelloWorld from './components/HelloWorld.vue'
-import Formulario from './components/form/Formulario.vue'
+//import Formulario from './components/form/Formulario.vue'
+import FormularioUpdate from './components/form/FormularioUpdate.vue'
 
 export default {
   name: 'app',
-  components: {Formulario}
+  components: {FormularioUpdate}
 
 }
 </script>

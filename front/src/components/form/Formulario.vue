@@ -25,9 +25,8 @@
         <label for="ano">Ano de Fabricacao: </label>
         <input type="text" class="form-control " id="anoVeiculo" v-model="carro.ano">
       </div>
-
        <div class="form-group col-7">
-         <button class="btn btn-primary" type="button" v-on:click="salvar">Salvar</button>
+         <button class="btn btn-primary" type="button" v-on:click="salvar(carro)">Salvar</button>
       </div>
 
     </div>
@@ -58,8 +57,8 @@ export default {
   },
 
   methods: {
-      async salvar(){
-        await Carros.salvar(this.carro)
+      async salvar(dadosCarro){
+        await Carros.salvar(dadosCarro)
         this.carro = {}
         alert("Inserido com sucesso")
       }
