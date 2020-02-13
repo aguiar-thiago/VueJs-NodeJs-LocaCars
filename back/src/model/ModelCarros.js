@@ -11,11 +11,11 @@ class Carros extends Conexao {
   }
 
   async Delete (data, callback) {
-    await super.delete(data.where, this.idtable, callback)
+    await super.delete(data, this.idtable, callback)
   }
 
   async Update (data, callback) {
-    await super.update(data, data, this.idtable, callback)
+    await super.update(data.dados, data.filtro, this.idtable, callback)
   }
 
   async Filter (data, callback) {

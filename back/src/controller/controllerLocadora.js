@@ -4,7 +4,6 @@ module.exports = {
 
   insert (req, res) {
     locadora.Insert(req.body, function (err, result){
-      console.log(req.body)
       if (err) res.json(err)
       res.json(result)
     })
@@ -27,7 +26,6 @@ module.exports = {
   filter (req, res) {
     locadora.Filter(req.body, function (err, result){
       if (err) res.json(err)
-      console.log(result)
       res.json(result)
     })
   }

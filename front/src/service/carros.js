@@ -11,6 +11,10 @@ export default {
 
   atualizar: (carro) => {
     return http.put('Atualizar', carro)
+  },
+
+  deletar: (carro) => {
+    return http.put('Deletar', carro)
   }
 
 }

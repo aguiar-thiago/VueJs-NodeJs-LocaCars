@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <FormularioUpdate/>
+    <FormularioUpDel/>
   </div>
 </template>
 
 <script>
 //import Formulario from './components/form/Formulario.vue'
-import FormularioUpdate from './components/form/FormularioUpdate.vue'
+import FormularioUpDel from './components/form/FormularioUpDel.vue'
 
 export default {
   name: 'app',
-  components: {FormularioUpdate}
+  components: {FormularioUpDel}
 
 }
 </script>
