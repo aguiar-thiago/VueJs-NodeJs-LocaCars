@@ -1,6 +1,4 @@
 <template>
-
-
   <form id="app" method="put" class="container" v-on:submit="pesquisar(carro.filtro)">
     <div class="row justify-content-center">
       <div class="form-group col-7">
@@ -43,7 +41,6 @@
       </div>
     </div>
     <div v-else >
-      <p></p>
     </div>
  <button type="button" v-on:click="abreModal()">
   Launch demo modal
@@ -109,6 +106,7 @@ export default {
   methods: {
     async pesquisar (filtro){
       event.preventDefault();
+
       if (this.carro.filtro.placa === '') {
         alert("A placa nao pode ser vazia")
         return
@@ -118,9 +116,11 @@ export default {
       this.carro.dados = this.resultado.data[0];
 
       if(!this.testaritem) {
-        alert('sgfdsf');
+        this.carro.filtro = {}
+        alert('Placa nao localiza. Favor verificar!');
       }
     },
+
     abreModal() {
       this.modal = !this.modal;
     },
@@ -133,9 +133,6 @@ export default {
       } else {
         alert("Ocorreu um problema ao atualizar o carro!")
       }
-
-      
-
 
       this.resultado = {}
       this.carro.dados  = {}
@@ -157,9 +154,6 @@ export default {
 
     },
 
-    mensagem (placa){
-      alert("Desculpa, mas nao conseguimos localizar o carro com a placa " +placa)
-    }
   },
   
 }
