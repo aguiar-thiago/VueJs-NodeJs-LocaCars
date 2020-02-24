@@ -1,12 +1,8 @@
 <template>
-<div class="pos-f-t">
-  <nav class="navbar navbar-dark bg-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div id="title">
-    </div>
+<div class="pos-f-t" id ="header">
+  <nav class="navbar navbar-dark" id="navbar">
   </nav>
+
 </div>
 
 </template>
@@ -26,15 +22,10 @@ export default {
 
 
 <style>
-
-#title {
-  color:white;
-  margin: auto; 
+#header {
+  width: 1160px;
+  height: 40px;
+  background: black;
 }
-
-h1 {
-  font-size: 20px;
-  }
-
 
 </style>

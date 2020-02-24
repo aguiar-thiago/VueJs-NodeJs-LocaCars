@@ -1,20 +1,21 @@
 <template>
 
 <div class="container" >
-
-
+  <Cards/>
 </div>
 
 
 </template>
 
 <script>
+import Cards from './../cards/Cards.vue'
 
 export default {
   name: 'Main',
   props: {
     msg: String
   },
+  components: {Cards},
 }
 
 </script>
@@ -22,9 +23,9 @@ export default {
 
 <style>
 #container {
-  background-color:white;
-  max-width: 90%;
-  height: 597px;
-  margin:  0px 0px 0px 137px;
+    background-color: #ffffff;
+    max-width: 1095px;
+    height: 601px;
+    margin: 0px 0px 0px 0px;
 }
 </style>

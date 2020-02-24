@@ -35,10 +35,16 @@ export default {
 
 <style>
 #app {
-  font-family: 'Courier New', Helvetica, Arial, sans-serif;
+  font-family: '', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
 }
 
+#menu {
+    width: 200px;
+    background-color: rgb(0, 0, 0);
+    margin: 0px 0px 0px 1159px;
+}
 </style>
 
