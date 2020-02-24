@@ -1,6 +1,6 @@
 <template>
 
-<div class="container" >
+<div id="container">
   <Cards/>
 </div>
 
@@ -23,9 +23,11 @@ export default {
 
 <style>
 #container {
-    background-color: #ffffff;
-    max-width: 1095px;
-    height: 601px;
-    margin: 0px 0px 0px 0px;
+  background-color: skyblue;
+  width: 100vw;
+  height: calc(100vh - 10vh);
+  padding: 30px;
+  margin:0;
 }
+
 </style>
