@@ -1,15 +1,17 @@
 <template>
-  <div class="col-md-9 row">
+  <div class="col-md-2 row">
   {{getrows}}
       <div class="col-md-6" v-for="item in items"  v-key="item.id">
-        <div class="card mb-2" id ="card-config">
+        <div class="card" style="width: 18rem;">
           <div class="card-body">
-            <h2 class="card-title">Card title</h2>
+            <h5 class="card-title">Card title</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <button type="button" class="btn btn-primary btn-sm">Vizualizar</button>
-            <button type="button" class="btn btn-success btn-sm">Reservar</button>
-            
           </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+          </ul>
         </div>
       </div>
   </div>
@@ -33,7 +35,7 @@ export default {
    },
    computed: {
      getrows(){
-       for(let a = 0; a < 6; a++ ){
+       for(let a = 0; a < 2; a++ ){
          this.items.push({id: a, title: `asdads ${a}`})
        }
      }

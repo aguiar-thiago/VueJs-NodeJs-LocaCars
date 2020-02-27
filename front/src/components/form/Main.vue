@@ -1,21 +1,24 @@
 <template>
 
-<div id="container">
-  <Cards/>
-</div>
-
+ <div id="container" class="container">
+    <div id="row" class="row">
+      <Cards/>
+        <InfosCards/>
+    </div>
+ </div>
 
 </template>
 
 <script>
 import Cards from './../cards/Cards.vue'
+import InfosCards from './../cards/InfosCards.vue'
 
 export default {
   name: 'Main',
   props: {
     msg: String
   },
-  components: {Cards},
+  components: {Cards, InfosCards},
 }
 
 </script>
@@ -23,11 +26,22 @@ export default {
 
 <style>
 #container {
-  background-color: skyblue;
-  width: 100vw;
-  height: calc(100vh - 10vh);
-  padding: 30px;
-  margin:0;
+background-color: #444444;
+  padding: 10px;
+  margin: 0;
+  max-width: 100vw;
+  position: absolute;
+  z-index: -1;
+  height: 92vh;
+  margin: 70px 0px 0px 0px;
 }
 
+#row {
+  width: 99%;
+  height: 99% ;
+}
+
+#info {
+  background-color:  #444444;
+}
 </style>

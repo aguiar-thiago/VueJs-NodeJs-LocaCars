@@ -4,7 +4,7 @@ CREATE TABLE `tb_carros` (
 	`cor` VARCHAR(20) NULL DEFAULT NULL,
 	`nome` VARCHAR(30) NULL DEFAULT NULL,
 	`ano` VARCHAR(50) NULL DEFAULT NULL,
-	`situacao` VARCHAR(10) NULL DEFAULT NULL,
+	`situacao` VARCHAR(10) NULL DEFAULT 'L',
 	PRIMARY KEY (`placa`)
 )
 COLLATE='latin1_swedish_ci'

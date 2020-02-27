@@ -1,14 +1,7 @@
 <template>
   <div id="app">
-
-    <div id="header-app">
       <Header/>
-    </div>
-
-     <div id="container-app">
       <Main/>
-    </div>
-
   </div>
 </template>
 
@@ -21,12 +14,21 @@ import Main from './components/form/Main.vue'
 
 export default {
   name: 'app',
-  components: {Header, Main}
+  components: {Header, Main},
+
+  methods: {
+    teste (){
+      console.log("teste")
+    }
+}
 
 }
 </script>
 
+
+
 <style>
+
 html, body{
   margin: 0;
 }
@@ -37,11 +39,7 @@ html, body{
   height: 100vh;
   margin: 0;
 }
-#container-app {
-  background-color: red;
-  width: 100vw;
-  height: calc(100vh - 10vh);
-}
+
 
 </style>
 
