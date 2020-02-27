@@ -26,7 +26,7 @@ export default {
 
 <style>
 #container {
-background-color: #444444;
+background-color: #ffffff;
   padding: 10px;
   margin: 0;
   max-width: 100vw;
@@ -36,10 +36,10 @@ background-color: #444444;
   margin: 70px 0px 0px 0px;
 }
 
-#row {
+/* #row {
   width: 99%;
   height: 99% ;
-}
+} */
 
 #info {
   background-color:  #444444;

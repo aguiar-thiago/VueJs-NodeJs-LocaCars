@@ -1,7 +1,7 @@
 <template>
   <div class="col-md-9 row">
   {{getrows}}
-      <div class="col-md-6" v-for="item in items"  v-key="item.id">
+      <div class="col-md-3" v-for="item in items"  v-key="item.id">
         <div class="card mb-2" id ="card-config">
           <div class="card-body">
             <h2 class="card-title">Card title</h2>
@@ -33,7 +33,7 @@ export default {
    },
    computed: {
      getrows(){
-       for(let a = 0; a < 6; a++ ){
+       for(let a = 0; a < 4; a++ ){
          this.items.push({id: a, title: `asdads ${a}`})
        }
      }
@@ -48,19 +48,19 @@ export default {
   border-radius: 57px;
 }
 
-#cards {
+/* #cards {
   width: 100%;
   height: 100%;
   margin: 0;
-}
+} */
 
 
 #card-config {
   border-radius: 20px;
   color: white;
   background-image: linear-gradient(#525252, #000000);
-  width: 96%;
-  height: 96%;
+  /* width: 96%;
+  height: 96%; */
 }
 
 
