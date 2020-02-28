@@ -1,14 +1,14 @@
 <template>
-  <div class="col-md-9 row">
+  <div id="row-cards" class="col-md-9 row">
   {{getrows}}
       <div class="col-md-3" v-for="item in items"  v-key="item.id">
         <div class="card mb-2" id ="card-config">
           <div class="card-body">
+            <img src="../../icones/iconeCarro.png" alt="..." class="img-thumbnail">
             <h2 class="card-title">Card title</h2>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <button type="button" class="btn btn-primary btn-sm">Vizualizar</button>
-            <button type="button" class="btn btn-success btn-sm">Reservar</button>
-            
+            <!-- <!-- <button type="button" class="btn btn-primary btn-sm">Vizualizar</button> -->
+            <!-- <button type="button" class="btn btn-success btn-sm">Reservar</button> -->
           </div>
         </div>
       </div>
@@ -48,11 +48,9 @@ export default {
   border-radius: 57px;
 }
 
-/* #cards {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-} */
+#col-md-9 row {
+  max-width: 71%;
+}
 
 
 #card-config {
@@ -61,6 +59,10 @@ export default {
   background-image: linear-gradient(#525252, #000000);
   /* width: 96%;
   height: 96%; */
+}
+
+#row-cards {
+  max-width: 71%;
 }
 
 

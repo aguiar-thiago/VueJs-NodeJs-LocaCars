@@ -77,8 +77,9 @@ nav{
 
 #evento-menu {
   background-image: linear-gradient(#2f2f2f, black);
-  display: block;
-  float: right;
+  position: absolute;
+  position: fixed;
+  right: 0px;
   top: 0px;
   width: 29vw;
   height: 85vh;
@@ -95,7 +96,7 @@ nav{
 }
 
 #navbar {
-    position: fixed;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
