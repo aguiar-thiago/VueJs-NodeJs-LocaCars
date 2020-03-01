@@ -1,7 +1,13 @@
 module.exports = {
 
- formatMenu: function (){
-    // alert(document.getElementById('evento-menu'))
+ formatMenu: function (id, mostrar){
+    if (mostrar) {
+
+    } else {
+      document.getElementById(id).style.animationTimingFunction='linear'
+    }
+
+
   }
 
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="col-md-2 row">
   {{getrows}}
-      <div class="col-md-6" v-for="item in items"  v-key="item.id">
+      <div class="col-md-6">
         <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">Card title</h5>

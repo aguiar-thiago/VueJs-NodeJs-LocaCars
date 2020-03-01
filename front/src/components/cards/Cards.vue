@@ -1,14 +1,25 @@
 <template>
   <div id="row-cards" class="col-md-9 row">
   {{getrows}}
-      <div class="col-md-3" v-for="item in items"  v-key="item.id">
+      <div id="teste" class="col-md-3" v-for="item in items" v-bind:key="item.id">
         <div class="card mb-2" id ="card-config">
           <div class="card-body">
             <img src="../../icones/iconeCarro.png" alt="..." class="img-thumbnail">
-            <h2 class="card-title">Card title</h2>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <!-- <!-- <button type="button" class="btn btn-primary btn-sm">Vizualizar</button> -->
-            <!-- <button type="button" class="btn btn-success btn-sm">Reservar</button> -->
+            <h2 class="card-title">Carro Simples</h2>
+            <table id="tabela" class="table">
+              <tbody>
+                <td>
+                  <tr>portas</tr>
+                  <tr>preco</tr>
+                  <tr>flex</tr>
+                </td>
+
+                <td>
+                  <p>Carro economico, ideial para quem quer economizar na hora de fazer sua reserva do seu automovel</p>
+                </td>
+
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -57,12 +68,21 @@ export default {
   border-radius: 20px;
   color: white;
   background-image: linear-gradient(#525252, #000000);
-  /* width: 96%;
-  height: 96%; */
+  cursor:pointer;
+}
+
+#teste :hover {
+  transform: scale(1.01);
+  border-radius: 20px;
 }
 
 #row-cards {
   max-width: 71%;
+  height: 100%;
+}
+
+#tabela {
+  color: white;
 }
 
 

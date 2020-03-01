@@ -21,17 +21,19 @@
     </div>
   </nav>
 
-  <div id="evento-menu" v-if="menu">
+  <div id="evento-menu" v-show="menu">
     <div id="opcoes">
       <h2>Guia Menu</h2>
       <div id="cadastrar-veiculo">
-        <button type="button" class="btn btn-warning">Warning</button>
+        <button type="button" class="btn btn-warning">Meus Carros</button>
       </div>
       <div id="atualizar-veiculo">
-        <button type="button" class="btn btn-warning">Warning</button>
+        <button type="button" class="btn btn-warning">cadastrar veiculo</button>
       </div>
       <div id="consultar-veiculos">
-        <button type="button" class="btn btn-warning">Warning</button>
+        <button type="button" class="btn btn-warning">
+          <router-link to="/cadastro">teste</router-link>
+        </button>
       </div>
     </div>
   </div>
@@ -41,7 +43,7 @@
 
 
 <script>
-// import funcs from './../../funcs/Funcs.js'
+import funcs from './../../funcs/Funcs.js'
 
 export default {
   name: 'Header',
@@ -58,6 +60,8 @@ export default {
   methods: {
     abreMenu() {
       this.menu = !this.menu
+
+      funcs.formatMenu(this.menu)
     },
   },
 }
@@ -76,7 +80,7 @@ nav{
 }
 
 #evento-menu {
-  background-image: linear-gradient(#2f2f2f, black);
+  background-image: linear-gradient(111deg, #000000, #424d69);
   position: absolute;
   position: fixed;
   right: 0px;
@@ -89,6 +93,13 @@ nav{
   z-index: 999;
   border-radius: 15px;
   margin-top: 75px;
+  animation: mymove 0.5s;
+  animation-timing-function: linear;
+}
+
+@keyframes mymove {
+  from {right: -200px;}
+  to {right: 0px;}
 }
 
 #header {
