@@ -1,35 +1,73 @@
 <template>
-  <form id="app" method="post" class="container">
-    <div class="row justify-content-center">
-      <div class="form-group col-7">
+  <form id="formulario" method="post" class="container">
+
+    <div class="form-row">
+      <div class="form-group col-md-3">
         <label for="placa">Placa: </label>
         <input type="text" class="form-control " id="placaVeiculo" v-model="carro.placa">
       </div>
 
-      <div class="form-group col-7">
+      <div class="form-group col-md-4">
         <label for="nome">Nome: </label>
         <input type="text" class="form-control " id="nomeVeiculo" v-model="carro.nome">
       </div>
 
-      <div class="form-group col-7">
+      <div class="form-group col-md-4">
         <label for="marca">Marca: </label>
         <input type="text" class="form-control " id="marcaVeiculo" v-model="carro.marca">
       </div>
+    </div>
 
-      <div class="form-group col-7">
+    <div class="form-row">
+
+      <div class="form-group col-md-4">
         <label for="cor">Cor: </label>
         <input type="text" class="form-control " id="corVeiculo" v-model="carro.cor">
       </div>
 
-      <div class="form-group col-7">
-        <label for="ano">Ano de Fabricacao: </label>
+      <div class="form-group col-md-2">
+        <label for="ano">Fabricacao: </label>
         <input type="text" class="form-control " id="anoVeiculo" v-model="carro.ano">
       </div>
-       <div class="form-group col-7">
-         <button class="btn btn-primary" type="button" v-on:click="salvar(carro)">Salvar</button>
+
+      <div class="form-group col-5">
+        <label class="control-label">Valor da Reserva</label>
+        <div class="form-group">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">$</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+            <div class="input-group-append">
+              <span class="input-group-text">.00</span>
+            </div>
+          </div>
+        </div>
+      </div> 
+
+      <div class="form-group col-8">
+        <select class="custom-select">
+          <option selected="">Categoria</option>
+          <option value="1">Simples</option>
+          <option value="2">Hatch</option>
+          <option value="3">SUV</option>
+          <option value="4">Luxuoso</option>
+        </select>
       </div>
 
+      <div class="form-group col-9">
+        <label for="exampleTextarea">Descricao</label>
+        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+      </div>
     </div>
+
+    <div class="form-group col-7">
+      <button class="btn btn-primary" type="button" v-on:click="salvar(carro)">Salvar</button>
+    </div>
+
+
+
+
   </form>
   
 </template>

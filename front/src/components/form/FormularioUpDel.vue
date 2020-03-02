@@ -42,12 +42,13 @@
     </div>
     <div v-else >
     </div>
- <button type="button" v-on:click="abreModal()">
-  Launch demo modal
-</button>
+
+ <!-- <button type="button" v-on:click="abreModal()">
+  abre modal
+</button> -->
 
 <!-- Modal -->
-<div class="modal fade show" tabindex="-1" role="dialog" v-bind:style="'display:' + (modal ? 'block' : 'none')">
+<!-- <div class="modal fade show" tabindex="-1" role="dialog" v-bind:style="'display:' + (modal ? 'block' : 'none')">
   <div class="modal-dialog show" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -65,7 +66,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
   </form>
 </template>
 
@@ -155,7 +156,7 @@ export default {
     },
 
   },
-  
+
 }
 
 </script>

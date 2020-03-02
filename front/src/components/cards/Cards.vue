@@ -15,7 +15,7 @@
                 </td>
 
                 <td>
-                  <p>Carro economico, ideial para quem quer economizar na hora de fazer sua reserva do seu automovel</p>
+                  <p>Carro economico, com otimo preco</p>
                 </td>
 
               </tbody>

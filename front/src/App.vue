@@ -16,7 +16,7 @@ export default {
 
 <style>
 
-/* html, body{
+ html, body{
   margin: 0;
 }
 #app {
@@ -25,7 +25,7 @@ export default {
   font-family: '', Helvetica, Arial, sans-serif;
   height: 100vh;
   margin: 0;
-} */
+} 
 
 
 </style>

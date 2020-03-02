@@ -1,9 +1,10 @@
 <template>
-<div id="header">
+<div id="">
   <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-dark">
     <h2>LocadoraCars</h2>
     <div class="collapse navbar-collapse" id="navbarText">
-      <ul id="lista" class="navbar-nav mr-auto">
+
+      <ul v-if="msg ==null" id="lista" class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link" href="#">SUV </a>
         </li>
@@ -17,7 +18,14 @@
           <a class="nav-link" href="#">Hatch</a>
         </li>
       </ul>
-        <button class="btn btn-outline-light" v-on:click="abreMenu()">Menu</button>
+
+      <ul v-else id="lista" class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a>{{msg}}</a>
+        </li>
+      </ul>
+
+        <button id ="btn-menu" class="btn btn-outline-light" v-on:click="abreMenu()">Menu</button>
     </div>
   </nav>
 
@@ -28,11 +36,13 @@
         <button type="button" class="btn btn-warning">Meus Carros</button>
       </div>
       <div id="atualizar-veiculo">
-        <button type="button" class="btn btn-warning">cadastrar veiculo</button>
+        <button type="button" class="btn btn-danger">
+          <router-link to="/editar">Editar veiculo</router-link>
+          </button>
       </div>
       <div id="consultar-veiculos">
         <button type="button" class="btn btn-warning">
-          <router-link to="/cadastro">teste</router-link>
+          <router-link to="/cadastro">cadastrar veiculo</router-link>
         </button>
       </div>
     </div>
@@ -102,10 +112,6 @@ nav{
   to {right: 0px;}
 }
 
-#header {
-  background-color: aliceblue;
-}
-
 #navbar {
   position: fixed;
   top: 0;
@@ -119,6 +125,12 @@ nav{
 
 #lista li a  {
   color: white;
+}
+
+#btn-menu {
+  float: right;
+  right: 7px;
+  position: fixed;
 }
 
 </style>
