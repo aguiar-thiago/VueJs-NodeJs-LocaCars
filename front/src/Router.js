@@ -3,7 +3,8 @@ import Router from 'vue-router'
 
 import Home from './views/Home.vue'
 import Cadastro from './views/Cadastrar.vue'
-import EditarExcluir from './views/Editar.vue'
+import EditarExcluirCarros from './views/Editar.vue'
+import MeusVeiculos from './views/MeusVeiculos.vue'
 
 Vue.use(Router)
 
@@ -23,7 +24,12 @@ export default new Router({
     {
       path: '/editar',
       name: 'editar',
-      component: EditarExcluir
+      component: EditarExcluirCarros
+    },
+    {
+      path: '/listaDeCaros',
+      name: 'listaCarros',
+      component: MeusVeiculos
     }
   ]
 })

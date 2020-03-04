@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div id="container" class="container">
+  <div id="container-home" class="container">
     <div id="row" class="row">
       <Cards/>
       <Maps/>
@@ -28,10 +28,9 @@ export default {
 
 
 <style>
-#container {
+#container-home {
   background-color: #ffffff;
   padding: 10px;
-  margin: 0;
   max-width: 100vw;
   z-index: -1;
   height: 92vh;

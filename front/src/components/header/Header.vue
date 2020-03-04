@@ -1,5 +1,5 @@
 <template>
-<div id="">
+<div id="header">
   <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-dark">
     <h2>LocadoraCars</h2>
     <div class="collapse navbar-collapse" id="navbarText">
@@ -33,15 +33,17 @@
     <div id="opcoes">
       <h2>Guia Menu</h2>
       <div id="cadastrar-veiculo">
-        <button type="button" class="btn btn-warning">Meus Carros</button>
+        <button type="button" class="btn btn-dark">
+           <router-link to="/listaDeCaross">Meus Carros</router-link>
+        </button>
       </div>
       <div id="atualizar-veiculo">
-        <button type="button" class="btn btn-danger">
+        <button type="button" class="btn btn-dark">
           <router-link to="/editar">Editar veiculo</router-link>
           </button>
       </div>
       <div id="consultar-veiculos">
-        <button type="button" class="btn btn-warning">
+        <button type="button" class="btn btn-dark">
           <router-link to="/cadastro">cadastrar veiculo</router-link>
         </button>
       </div>
