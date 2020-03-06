@@ -5,8 +5,8 @@ export default {
      return http.post('Cadastrar', carro)
   },
 
-  pesquisar: (placaCarro) => {
-    return http.post('Pesquisar', placaCarro)
+  pesquisar: (filtro) => {
+    return http.post('Pesquisar', filtro)
   },
 
   atualizar: (carro) => {

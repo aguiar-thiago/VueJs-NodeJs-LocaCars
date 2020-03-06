@@ -37,7 +37,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text">$</span>
             </div>
-            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" v-model="carro.valor_reserva">
             <div class="input-group-append">
               <span class="input-group-text">.00</span>
             </div>
@@ -46,18 +46,18 @@
       </div> 
 
       <div class="form-group col-8">
-        <select class="custom-select">
+        <select class="custom-select" v-model="carro.categoria" >
           <option selected="">Categoria</option>
-          <option value="1">Simples</option>
-          <option value="2">Hatch</option>
-          <option value="3">SUV</option>
-          <option value="4">Luxuoso</option>
+          <option value="simples">Simples</option>
+          <option value="hatch">Hatch</option>
+          <option value="suv">SUV</option>
+          <option value="luxuoso">Luxuoso</option>
         </select>
       </div>
 
       <div class="form-group col-9">
         <label for="exampleTextarea">Descricao</label>
-        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+        <textarea class="form-control" id="exampleTextarea" rows="3" v-model="carro.descricao"></textarea>
       </div>
     </div>
 
@@ -90,7 +90,10 @@ export default {
         nome : '',
         marca : '',
         cor: '',
-        ano : ''
+        ano : '',
+        valor_reserva: '',
+        categoria: '',
+        descricao: ''
       }
     }
   },

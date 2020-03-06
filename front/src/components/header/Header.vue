@@ -34,7 +34,7 @@
       <h2>Guia Menu</h2>
       <div id="cadastrar-veiculo">
         <button type="button" class="btn btn-dark">
-           <router-link to="/listaDeCaross">Meus Carros</router-link>
+           <router-link to="/listaDeCarros">Meus Carros</router-link>
         </button>
       </div>
       <div id="atualizar-veiculo">

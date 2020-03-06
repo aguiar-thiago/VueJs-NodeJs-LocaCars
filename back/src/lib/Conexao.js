@@ -40,7 +40,7 @@ class Conexao {
   }
 
   async select (where, tabela, callback) {
-    const format = await this.conexao.format(`SELECT placa, marca, cor, nome, ano, situacao FROM ${tabela} WHERE ?`, where)
+    const format = await this.conexao.format(`SELECT * FROM ${tabela} WHERE ?`, where)
     await this.conexao.query(format, callback)
   }
 

@@ -1,11 +1,11 @@
 <template>
-  <form id="app" method="put" class="container" v-on:submit="pesquisar(carro.filtro)">
+  <form id="form" method="put" class="container" v-on:submit="pesquisar(carro.filtro)">
     <div class="row justify-content-center">
       <div class="form-group col-7">
         <label for="placa">Placa </label>
         <input type="text" class="form-control " id="placaVeiculo" v-model="carro.filtro.placa">
       </div>
-   
+
        <div class="form-group col-7">
          <button class="btn btn-primary" type="submit" >Pesquisar</button>
       </div>
@@ -33,6 +33,36 @@
 
       <div class="form-group col-7">
         <input type="text" class="form-control " id="situacaoVeiculoAtu" v-model="carro.dados.situacao">
+      </div>
+
+      <div class="form-group col-5">
+        <label class="control-label">Valor da Reserva</label>
+        <div class="form-group">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">$</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" v-model="carro.dados.valor_reserva">
+            <div class="input-group-append">
+              <span class="input-group-text">.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group col-8">
+        <select class="custom-select" v-model="carro.dados.categoria">
+          <option selected="">Categoria</option>
+          <option value="simples">Simples</option>
+          <option value="hatch">Hatch</option>
+          <option value="suv">SUV</option>
+          <option value="luxuoso">Luxuoso</option>
+        </select>
+      </div>
+
+      <div class="form-group col-9">
+        <label for="exampleTextarea">Descricao</label>
+        <textarea class="form-control" id="exampleTextarea" rows="3" v-model="carro.dados.descricao"></textarea>
       </div>
 
        <div class="form-group col-7">
@@ -92,7 +122,9 @@ export default {
           nome: '',
           ano: '',
           situacao: '',
-         
+          valor_reserva: '',
+          categoria: '',
+          descricao: ''
         },
       },
        resultado:{},
@@ -162,5 +194,9 @@ export default {
 </script>
 
 <style>
+#form {
+  margin-top: 80px;
+
+}
 
 </style>

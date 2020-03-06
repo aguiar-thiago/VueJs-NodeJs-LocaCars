@@ -1,9 +1,9 @@
 <template>
-  <div id="pagina-cadastro">
+  <div id="pagina-editar-veiculos">
     <Header msg="Editar Veiculo"/>
 
     <div id="container">
-    <FormularioUpDel/>
+      <FormularioUpDel/>
     </div>
 
 

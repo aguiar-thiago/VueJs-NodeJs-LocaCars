@@ -27,7 +27,7 @@ export default new Router({
       component: EditarExcluirCarros
     },
     {
-      path: '/listaDeCaros',
+      path: '/listaDeCarros',
       name: 'listaCarros',
       component: MeusVeiculos
     }

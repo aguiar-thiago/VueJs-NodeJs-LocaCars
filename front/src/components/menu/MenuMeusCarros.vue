@@ -27,7 +27,7 @@ export default {
 
 #opcoes-categoria {
   padding: 10px;
-  margin: 70px auto;
+  margin: 70px 0px 0px 0px;
 }
 
 </style>
