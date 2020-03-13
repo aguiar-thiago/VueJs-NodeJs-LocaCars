@@ -7,8 +7,23 @@
         <a id="btn-menu-opcoes" class="nav-item nav-link" v-on:click="pesquisar('suv')">SUV</a>
         <a id="btn-menu-opcoes" class="nav-item nav-link" v-on:click="pesquisar('luxo')">Luxo</a>
         <a id="btn-menu-opcoes" class="nav-item nav-link" v-on:click="pesquisar('caminhonete')">Caminhonetes</a>
+
       </nav>
     </div>
+
+<!-- 
+    <div id="sidebar" class="col-12 col-md-3 col-xl-2 bd-sidebar">
+      <ul id="lista-sidebar">
+        <p>Filtro</p>
+        <li><li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div> -->
 
     <div id="lista-carros" class="col-md-10 row">
 
@@ -105,6 +120,17 @@ export default {
   color: white;
   padding: 10px;
   margin: 70px 0px 0px 0px;
+}
+
+#sidebar {
+  background-color:rgb(241, 241, 241);
+  width: 15%;
+  height: 100%;
+  position: fixed;
+}
+
+#lista-sidebar {
+  margin-top: 90px;
 }
 </style>
 
