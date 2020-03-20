@@ -1,17 +1,12 @@
 <template>
 
-  <div class="container estatisticas-graficos">
+  <div class="container cards">
     <div class="row">
-      <div class="carros-grafico col-sm-9">
-        <div class="titulo-carros-grafico">
-        </div>
-        <div class="conteudo">
-        </div>
+      <div class="card col">
       </div>
-
-      <div class="teste-carros-conteudo col-sm-3">
-        <div class="">
-        </div>
+      <div class="card col">
+      </div>
+      <div class="card col">
       </div>
 
     </div>
@@ -21,7 +16,7 @@
 
 <script>
 export default {
-  name: 'EstatisticasGraficos',
+  name: 'Cards',
   props: {
     msg: String
   },
@@ -56,7 +51,11 @@ export default {
   height: 425px;
 }
 
-.teste-carros-conteudo {
-  background-color: rgb(168, 247, 247);
+.card {
+    background-color: rgb(118, 162, 255);
+    width: 90px;
+    height: 400px;
+    margin: 10px;
 }
+
 </style>
