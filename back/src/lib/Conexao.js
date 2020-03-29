@@ -4,12 +4,12 @@ import 'dotenv/config'
 class Conexao {
   constructor() {
     this.conexao = mySql.createConnection({
-      host : process.env.DB_HOST,
-      user :  process.env.DB_USER,
-      password : process.env.DB_PASS,
-      database : process.env.DB_DATABASE,
-      port : process.env.DB_PORT,
-      insecureAuth : process.env.DB_INSECUREAUTH
+      host : process.env.CDB_HOST,
+      user :  process.env.CDB_USER,
+      password : process.env.CDB_PASS,
+      database : process.env.CDB_DATABASE,
+      port : process.env.CDB_PORT,
+      insecureAuth : process.env.CDB_INSECUREAUTH
     })
     this.conexao.connect((err) => {
       if (err) {

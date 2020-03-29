@@ -1,13 +1,20 @@
 <template>
 
-  <div id="container" class="container">
+  <div class="container menu-area">
     <div class="row">
       <ul class="list-group list-group-horizontal lista-menu">
-        <li class="list-group-item">Home</li>
-        <li class="list-group-item">Cadastrar Veiculo</li>
-        <li class="list-group-item">Listar Carros</li>
-        <li class="list-group-item">Extra</li>
-        <li class="list-group-item">Extra</li>
+        <li class="list-group-item">
+           <router-link to="/">Home</router-link>
+        </li>
+        <li class="list-group-item">
+           <router-link to="/Cadastrar">Cadastrar Veiculo</router-link>
+        </li>
+        <li class="list-group-item">
+           <router-link to="/Atualizar">Atualizar</router-link>
+        </li>
+        <li class="list-group-item">
+           <router-link to="/listaCarros">Listar Carros</router-link>
+        </li>
         <li class="list-group-item">Extra</li>
         <li class="list-group-item">Extra</li>
       </ul>
@@ -20,7 +27,6 @@
         <li class="list-group-item">Listar Carros</li>
         <li class="list-group-item">Atualizacao Rapida</li>
         <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
         <li class="list-group-item">Morbi leo risus</li>
       </ul>
     </div>
@@ -41,18 +47,31 @@ export default {
 
 
 <style>
-#container {
-  background-color: rgb(255, 255, 255);
-  height: 100px;
-  margin-top: 40px;
-  margin-bottom: 40px;
-}
 
-.lista-menu {
-  border: 0;
-  justify-content: center;
-  width: 100%;
-}
+  .container {
+    max-width: 1603px;
+    margin: 40px auto;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+  }
+  .menu-area {
+    font-size: 22px;
+    margin: 81px auto 40px auto;
+  }
+
+  .list-group-item {
+      position: relative;
+      display: block;
+      padding: .75rem 1.25rem;
+      background-color: rgb(255, 255, 255);
+      border: none;
+  }
+
+  .lista-menu {
+    border: 0;
+    justify-content: center;
+    width: 100%;
+  }
 
 
 </style>

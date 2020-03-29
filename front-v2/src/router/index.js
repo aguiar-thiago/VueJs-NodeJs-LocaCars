@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Cadastrar from '../views/CadastrarCarros.vue'
+import AtualizaDeletaCarros from '../views/AtualizaDeletaCarros.vue'
+import TodosMeusCarros from '../views/TodosMeusCarros.vue'
 
 Vue.use(VueRouter)
 
@@ -11,8 +14,19 @@ const routes = [
     component: Home
   },
   {
-    path: '/about',
-    name: 'About',
+    path: '/Cadastrar',
+    name: 'Cadastrar',
+    component: Cadastrar
+  },
+  {
+    path: '/Atualizar',
+    name: 'Atualizar',
+    component: AtualizaDeletaCarros
+  },
+  {
+    path: '/ListaCarros',
+    name: 'Atualizar',
+    component: TodosMeusCarros
   }
 ]
 
