@@ -66,11 +66,4 @@ export default {
   padding: 25px 154px 0px 51px;
 }
 
-#lista-card {
-    background-image: linear-gradient(#e9e9e9, #ffffff);
-    color: #000000;
-  width: 100%;
-  height: 100%;
-}
-
 </style>

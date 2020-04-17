@@ -28,6 +28,12 @@ module.exports = {
       if (err) res.json(err)
       res.json(result)
     })
-  }
+  },
 
+  filterWhereFixo (req, res) {
+    locadora.FilterWhereFixo(req.body, function (err, result){
+      if (err) res.json(err)
+      res.json(result)
+    })
+  }
 }

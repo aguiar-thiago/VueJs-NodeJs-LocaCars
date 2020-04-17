@@ -46,21 +46,56 @@
       </div> 
     </div>
 
-    <div class="form-row">
-      <div class="form-group col-7">
-        <label class="control-label" for="exampleTextarea">Descricao</label>
-        <textarea class="form-control" rows="3" v-model="carro.descricao"></textarea>
+    <div class="form-row" style="justify-content: center;">
+       <div class="form-group mx-sm-7 mb-2">
+        <label class="control-label" for="lugares">Lugares</label>
+        <select class="custom-select" v-model="carro.qtd_lugares">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
       </div>
 
-      <div class="form-group col-4">
-        <label class="control-label" for="exampleTextarea">Categoria</label>
-        <select class="custom-select" v-model="carro.categoria" >
+      <div class="form-group mx-sm-5 mb-2">
+        <label class="control-label" for="quilometragem">Quilometragem</label>
+        <input type="number" class="form-control " v-model="carro.km">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col">
+          <label class="control-label" for="cambio">Câmbio</label>
+          <select class="custom-select" v-model="carro.cambio">
+            <option value="automatico">Automatico</option>
+            <option value="manual">Manual</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group mx-sm-5 mb-">
+        <label class="control-label" for="categoria">Categoria</label>
+        <select class="custom-select" v-model="carro.categoria">
           <option value="simples">Simples</option>
-          <option value="hatch">Hatch</option>
+          <option value="caminhonete">Caminhonete</option>
           <option value="suv">SUV</option>
           <option value="luxuoso">Luxuoso</option>
         </select>
       </div>
+
+    </div>
+
+    <div class="form-row" style="justify-content: center;">
+      <div class="form-group col-9">
+        <label class="control-label" for="descricao">Descriçâo</label>
+        <textarea class="form-control" rows="3" v-model="carro.descricao"></textarea>
+      </div>
+
     </div>
     <div class="form-group col">
       <button class="btn btn-dark btn-lg" type="button" v-on:click="salvar(carro)">Salvar</button>
@@ -91,14 +126,18 @@ export default {
         ano : '',
         valor_reserva: '',
         categoria: '',
-        descricao: ''
+        descricao: '',
+        km: '',
+        qtd_lugares: '',
+        cambio: ''
       }
     }
   },
 
   methods: {
       async salvar(dadosCarro){
-        await Carros.salvar(dadosCarro)
+        var retorno = await Carros.salvar(dadosCarro)
+        console.log(retorno)
         this.limpaCampos()
         alert("Inserido com sucesso")
       },

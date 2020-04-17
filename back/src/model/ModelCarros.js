@@ -21,6 +21,10 @@ class Carros extends Conexao {
   async Filter (data, callback) {
     await super.select(data, this.idtable, callback)
   }
+
+  async FilterWhereFixo (data, callback) {
+    await super.selectWhereFixo(data, this.idtable, callback)
+  }
 }
 
 export default new Carros()

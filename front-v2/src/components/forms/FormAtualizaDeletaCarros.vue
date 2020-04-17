@@ -73,7 +73,7 @@
           <label class="control-label" for="exampleTextarea">Categoria</label>
           <select class="custom-select" v-model="carro.dados.categoria">
             <option value="simples">Simples</option>
-            <option value="hatch">Hatch</option>
+            <option value="caminhonete">Caminhonete</option>
             <option value="suv">SUV</option>
             <option value="luxuoso">Luxuoso</option>
           </select>

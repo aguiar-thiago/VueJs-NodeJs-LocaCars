@@ -44,6 +44,12 @@ class Conexao {
     await this.conexao.query(format, callback)
   }
 
+  async selectWhereFixo (where, tabela, callback) {
+    const format = await this.conexao.format(`SELECT * FROM ${tabela} WHERE ${where}`)
+    console.log(format)
+    await this.conexao.query(format, callback)
+  }
+
 }
 
 module.exports = Conexao
