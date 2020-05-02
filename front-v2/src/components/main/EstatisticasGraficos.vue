@@ -6,12 +6,12 @@
         <div class="titulo-carros-grafico">
         </div>
         <div class="conteudo">
+          <Chart/>
+
         </div>
       </div>
 
       <div class="teste-carros-conteudo col-sm-3">
-        <div class="">
-        </div>
       </div>
 
     </div>
@@ -20,12 +20,14 @@
 </template>
 
 <script>
+import Chart from '../chart/Chart.vue'
+
 export default {
   name: 'EstatisticasGraficos',
   props: {
     msg: String
   },
-  components: {},
+  components: {Chart},
 
 }
 </script>
@@ -34,6 +36,7 @@ export default {
 <style>
 .estatisticas-graficos {
   width: 100%;
+  height: 650px;
   /* height: 500px; */
   background-color: rgb(255, 255, 255);
   margin-top: 55px;
@@ -52,11 +55,12 @@ export default {
 }
 
 .conteudo {
-  background-color: rgb(164, 248, 175);
-  height: 425px;
+  background-color: rgb(255, 244, 244);
 }
 
 .teste-carros-conteudo {
   background-color: rgb(168, 247, 247);
 }
+
+
 </style>

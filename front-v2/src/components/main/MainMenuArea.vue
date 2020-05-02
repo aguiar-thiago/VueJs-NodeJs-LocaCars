@@ -47,13 +47,6 @@ export default {
 
 
 <style>
-
-  .container {
-    max-width: 1603px;
-    margin: 40px auto;
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-  }
   .menu-area {
     font-size: 22px;
     margin: 81px auto 40px auto;
@@ -63,7 +56,7 @@ export default {
       position: relative;
       display: block;
       padding: .75rem 1.25rem;
-      background-color: rgb(255, 255, 255);
+      background-color: rgb(221, 221, 221);
       border: none;
   }
 

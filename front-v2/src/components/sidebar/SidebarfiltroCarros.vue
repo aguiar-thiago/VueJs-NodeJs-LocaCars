@@ -26,7 +26,7 @@
         <div class="col-md-12 row">
           <div class="col-md-6" v-for="(mostraCategoriaCarro, index) in mostraCategoriaCarros" v-bind:key="mostraCategoriaCarro">
             <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" v-bind:id="'customSwitch2'+ index" v-bind:value="mostraCategoriaCarro" v-model="filtro_carros.categoria">
+              <input type="checkbox" class="custom-control-input" v-bind:id="'customSwitch22'+ index" v-bind:value="mostraCategoriaCarro" v-model="filtro_carros.categoria">
               <label class="custom-control-label" v-bind:for="'customSwitch2' + index">{{mostraCategoriaCarro}}</label>
             </div>
           </div>

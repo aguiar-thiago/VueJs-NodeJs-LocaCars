@@ -1,5 +1,5 @@
 <template>
-  <form id="form" method="put" class="container" v-on:submit="pesquisar(carro.filtro)">
+  <form method="put" class="container form-atualiza-dados" v-on:submit="pesquisar(carro.filtro)">
     <div class="row justify-content-center">
       <div class="form-group col-7">
         <h3>Placa do Véiculo</h3>
@@ -54,7 +54,50 @@
               </div>
             </div>
           </div>
-        </div> 
+        </div>
+      </div>
+
+      <div class="form-row" style="justify-content: center;">
+        <div class="form-group mx-sm-7 mb-2">
+          <label class="control-label" for="lugares">Lugares</label>
+          <select class="custom-select" v-model="carro.dados.qtd_lugares">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+
+        <div class="form-group mx-sm-5 mb-2">
+          <label class="control-label" for="quilometragem">Quilometragem</label>
+          <input type="number" class="form-control " v-model="carro.dados.km">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col">
+            <label class="control-label" for="cambio">Câmbio</label>
+            <select class="custom-select" v-model="carro.dados.cambio">
+              <option value="automatico">Automatico</option>
+              <option value="manual">Manual</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group col-3">
+          <label class="control-label" for="exampleTextarea">Categoria</label>
+          <select class="custom-select" v-model="carro.dados.categoria">
+            <option value="simples">Simples</option>
+            <option value="caminhonete">Caminhonete</option>
+            <option value="suv">SUV</option>
+            <option value="luxuoso">Luxuoso</option>
+          </select>
+        </div>
       </div>
 
       <div class="form-row">
@@ -68,17 +111,6 @@
           <label class="control-label" for="exampleTextarea">Situação</label>
           <input type="text" class="form-control " id="situacaoVeiculoAtu" v-model="carro.dados.situacao">
         </div>
-
-        <div class="form-group col-3">
-          <label class="control-label" for="exampleTextarea">Categoria</label>
-          <select class="custom-select" v-model="carro.dados.categoria">
-            <option value="simples">Simples</option>
-            <option value="caminhonete">Caminhonete</option>
-            <option value="suv">SUV</option>
-            <option value="luxuoso">Luxuoso</option>
-          </select>
-        </div>
-
       </div>
 
        <div class="form-group col">
@@ -114,7 +146,7 @@
   </form>
 </template>
 
-<script>
+<script scoped>
 import Carros from '../../service/carros.js'
 
 export default {
@@ -138,7 +170,10 @@ export default {
           situacao: '',
           valor_reserva: '',
           categoria: '',
-          descricao: ''
+          descricao: '',
+          km: '',
+          qtd_lugares: '',
+          cambio: ''
         },
       },
        resultado:{},
@@ -208,9 +243,12 @@ export default {
 </script>
 
 <style>
-#form {
-  margin-top: 80px;
+  .form-atualiza-dados {
+    margin-top: 80px;
+  }
 
-}
+  .control-label {
+    font-size: 22px;
+  }
 
 </style>

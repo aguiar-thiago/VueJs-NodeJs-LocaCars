@@ -1,6 +1,7 @@
 <template>
 
   <form method="post" class="container cadastro-carro">
+
     <div class="form-row">
       <div class="form-group col-md-3">
         <label class="control-label" for="placa">Placa </label>
@@ -13,16 +14,32 @@
       </div>
 
       <div class="form-group col-md-4">
-        <label class="control-label" for="marca">Marca </label>
-        <input type="text" class="form-control " v-model="carro.marca">
+        <label class="control-label" for="marca">Marca</label>
+        <select class="custom-select" v-model="carro.marca">
+          <option 
+            v-for="mostraMarcaCarro in getAtributosCarros('marca')"
+            v-bind:key="mostraMarcaCarro"
+            :value="mostraMarcaCarro"
+            style="text-transform: capitalize;">
+            {{mostraMarcaCarro}}
+          </option>
+        </select>
       </div>
     </div>
 
-    <div class="form-row">
+    <div class="form-row" style="justify-content: center;">
 
-      <div class="form-group col-md-4">
-        <label class="control-label" for="cor">Cor do Veículo </label>
-        <input type="text" class="form-control " v-model="carro.cor">
+      <div class="form-group col-md-3">
+        <label class="control-label" for="cor">Cor do Veículo</label>
+        <select class="custom-select" v-model="carro.cor">
+          <option 
+            v-for="mostraDados in getAtributosCarros('cor')"
+            v-bind:key="mostraDados"
+            :value="mostraDados"
+            style="text-transform: capitalize;">
+            {{mostraDados}}
+          </option>
+        </select>
       </div>
 
       <div class="form-group col-md-2">
@@ -48,19 +65,19 @@
 
     <div class="form-row" style="justify-content: center;">
        <div class="form-group mx-sm-7 mb-2">
-        <label class="control-label" for="lugares">Lugares</label>
-        <select class="custom-select" v-model="carro.qtd_lugares">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-        </select>
+          <label class="control-label" for="lugares">Lugares</label>
+          <select class="custom-select" v-model="carro.qtd_lugares">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
       </div>
 
       <div class="form-group mx-sm-5 mb-2">
@@ -81,10 +98,13 @@
       <div class="form-group mx-sm-5 mb-">
         <label class="control-label" for="categoria">Categoria</label>
         <select class="custom-select" v-model="carro.categoria">
-          <option value="simples">Simples</option>
-          <option value="caminhonete">Caminhonete</option>
-          <option value="suv">SUV</option>
-          <option value="luxuoso">Luxuoso</option>
+          <option 
+            v-for="mostraDados in getAtributosCarros('categoria')"
+            v-bind:key="mostraDados"
+            :value="mostraDados"
+            style="text-transform: capitalize;">
+            {{mostraDados}}
+          </option>
         </select>
       </div>
 
@@ -99,67 +119,84 @@
     </div>
     <div class="form-group col">
       <button class="btn btn-dark btn-lg" type="button" v-on:click="salvar(carro)">Salvar</button>
-      <button class="btn btn-primary btn-lg" type="button" v-on:click="limpaCampos()">Limpar Campos</button>
+      <button class="btn btn-primary btn-lg" type="button" v-on:click="carro = {}">Limpar Campos</button>
     </div>
 
   </form>
 </template>
 
 
-
 <script>
-import Carros from '../../service/carros'
+  import Carros from '../../service/carros'
+  import funcs from '../../functions/Functions.js'
 
-export default {
-  name: 'Formulario',
-  props: {
-    msg: String
-  },
+  export default {
+    name: 'Formulario',
+    props: {
+      msg: String
+    },
 
-  data(){
-    return {
-      carro :{
-        placa: '',
-        nome : '',
-        marca : '',
-        cor: '',
-        ano : '',
-        valor_reserva: '',
-        categoria: '',
-        descricao: '',
-        km: '',
-        qtd_lugares: '',
-        cambio: ''
+    data(){
+      return {
+        carro :{
+          placa: '',
+          nome : '',
+          marca : '',
+          cor: '',
+          ano : '',
+          valor_reserva: '',
+          categoria: '',
+          descricao: '',
+          km: '',
+          qtd_lugares: '',
+          cambio: ''
+        }
       }
-    }
-  },
+    },
 
-  methods: {
+    methods: {
       async salvar(dadosCarro){
+
+        var retornoCampos = await funcs.validaCampos(this.carro)
+        if (!retornoCampos) return
+
         var retorno = await Carros.salvar(dadosCarro)
-        console.log(retorno)
-        this.limpaCampos()
-        alert("Inserido com sucesso")
+        if(retorno.status != 200 ) {
+          alert("Erro ao inserir carro.")
+          console.log(retorno)
+          return
+        }
+        alert("Carro inserido com sucesso.")
+        this.carro = {}
       },
 
-      limpaCampos() {
-        this.carro = {}
+      getAtributosCarros: function (propriedade) {
+        if(propriedade == 'marca')     return funcs.getCarrosMarcas();
+        if(propriedade == 'cor')       return funcs.getCarrosCor();
+        if(propriedade == 'categoria') return funcs.getCarrosCategorias();
       }
+    },
+
+
   }
-}
 
 </script>
 
-<style>
-.control-label {
-  font-size: 22px;
-}
+<style scoped>
+  .control-label {
+    font-size: 22px;
+  }
 
-.cadastro-carro {
-  padding: 30px;
-}
+  .cadastro-carro {
+    padding: 30px;
+  }
 
-.form-control {
-  font-size: 22px;
-}
+  .container {
+    background-color: #c2efc6;
+  }
+
+  .btn {
+    margin-top: 47px;
+    margin-left: 60px;
+  }
 </style>
