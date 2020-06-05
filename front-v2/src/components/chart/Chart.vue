@@ -1,7 +1,6 @@
 <template>
-  <canvas id="planet-chart" class="teste"></canvas>
+  <canvas id="planet-chart" class="grafico"></canvas>
 </template>
-
 
 <script>
 import Chart from 'chart.js';
@@ -20,31 +19,27 @@ export default {
   },
 
   methods: {
-  createChart(chartId, chartData) {
-    const ctx = document.getElementById(chartId);
-    const myChart = new Chart(ctx, {
-      type: chartData.type,
-      data: chartData.data,
-      options: chartData.options,
-    });
-  }
-},
+    createChart(chartId, chartData) {
+      const ctx = document.getElementById(chartId);
+      const myChart = new Chart(ctx, {
+        type: chartData.type,
+        data: chartData.data,
+        options: chartData.options,
+      });
+    }
+  },
 
   mounted() {
-  this.createChart('planet-chart', this.planetChartData);
+    this.createChart('planet-chart', this.planetChartData);
+  }
 }
-
-}
-
-
 </script>
 
 <style>
 
-#teste {
+#grafico {
   width: 1200px;
   height: 100px;
 }
-
 
 </style>

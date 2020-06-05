@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Cadastrar from '../views/CadastrarCarros.vue'
 import AtualizaDeletaCarros from '../views/AtualizaDeletaCarros.vue'
 import TodosMeusCarros from '../views/TodosMeusCarros.vue'
+import CadastrarClientes from '../views/CadastrarClientes.vue'
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,11 @@ const routes = [
     path: '/ListaCarros',
     name: 'Atualizar',
     component: TodosMeusCarros
+  },
+  {
+    path: '/CadastroClientes',
+    name: 'Atualizar',
+    component: CadastrarClientes
   }
 ]
 

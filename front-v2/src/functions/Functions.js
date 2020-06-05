@@ -61,10 +61,10 @@ module.exports = {
 
   getCarrosMarcas: function() {
     const marcas = Array(
-      "Agrale", "aston martin","audi","bentley","bmw","byd","caoa chery","changan","chevrolet",
-      "chrysler","citroen","dodge","dongfeng","effa","ferrari","fiat","ford","foton","geely","hafei",
-      "honda","hyundai","iveco","jac","jaguar","jeep","jinbei","kia","lamborghini","land rover","lexus",
-      "lifan","maserati","mclaren","mercedes-amg","mercedes-benz","mini","mitsubishi","nissan","peugeot",
+      "agrale", "aston martin","audi","bmw","byd","caoa chery","changan","chevrolet",
+      "chrysler","citroen","dodge","effa","ferrari","fiat","ford","foton","geely","hafei",
+      "honda","hyundai","iveco","jac","jaguar","jeep","jinbei","kia","land rover","lexus",
+      "lifan","maserati","mclaren","mini","mitsubishi","nissan","peugeot",
       "porsche","ram","rely","renault","rolls-royce","shineray","smart","subaru","suzuki","tac","tesla",
       "toyota","troller","volkswagen","volvo"
     )

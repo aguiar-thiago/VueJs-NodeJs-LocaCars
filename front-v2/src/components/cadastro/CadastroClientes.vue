@@ -1,6 +1,6 @@
 <template>
   <form method="post" class="container cadastro-carro">
-    <FormCarro v-bind:dadosCarro="carro" ambiente="cadastrar"></FormCarro>
+    <FormCliente v-bind:dadosCarro="carro" ambiente="cadastrar"></FormCliente>
     <div class="form-group col">
       <button class="btn btn-dark btn-lg" type="button" @click="salvar(carro)">Salvar</button>
       <button class="btn btn-primary btn-lg" type="button" @click="carro = {}">Limpar Campos</button>
@@ -11,14 +11,14 @@
 <script>
   import Carros    from '../../service/carros'
   import funcs     from '../../functions/Functions.js'
-  import FormCarro from '../forms/FormCarro.vue'
+  import FormCliente from '../forms/FormCliente.vue'
 
   export default {
-    name: 'Formulario',
+    name: 'CadastroClientes',
     props: {
       msg: String
     },
-    components: {FormCarro},
+    components: {FormCliente},
 
     data(){
       return {

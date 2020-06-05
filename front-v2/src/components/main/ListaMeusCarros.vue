@@ -1,9 +1,7 @@
 <template>
-
   <div class="container lista-carros">
     <div id="row-cards" class="col-md-12 row">
-
-      <div class="col-md-4" v-for="carro in carros.data" v-bind:key="carro.placa">
+      <div class="col-md-4" v-for="(carro, index) in retornaCarros" v-bind:key="carro.placa">
         <div class="card">
           <img class="card-img-top img-carro" src="../../icones/iconeCarro.png" alt="Card image cap">
           <div class="card-body" style="margin-top: 30px">
@@ -22,7 +20,6 @@
             </h2>
 
             <div class="row">
-
               <div class="col coluna desc-km">
                 <div class="col">
                   <img class="card-img-top img-velocimeto" src="../../icones/velocimetro2.png" alt="Card image cap" style="width: 35px;">
@@ -49,12 +46,10 @@
                   <h6 class="label-km" style="text-transform: capitalize;">{{carro.cambio}}</h6>
                 </div>
               </div>
-
             </div>
-
           </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
+          <div class="atualiza-carros">
+            <ModalAtualizaCarros v-bind:dadosCarro="carro" :index="index" @envia-carro-atualizado="pegaDados"></ModalAtualizaCarros>
           </div>
         </div>
       </div>
@@ -71,36 +66,48 @@
 
   </div>
 
-
-
 </template>
 
 <script>
-import { bus } from "../../main.js"
+  import { bus } from "../../main.js"
+  import ModalAtualizaCarros from "../modal/ModalAtualizaCarros.vue"
 
-export default {
-  name: 'ListaMeusCarros',
-  props: {
-    msg: String
-  },
+  export default {
+    name: 'ListaMeusCarros',
+    props: {
+      msg: String
+    },
+    components: {ModalAtualizaCarros},
 
-  data() {
-    return {
-      carros: []
+    data: function() {
+      return {
+        carros: {}
+      }
+    },
+
+    methods: {
+      pegaDados(dados) {
+        console.log(dados)
+        console.log(this.carros.data[dados.index])
+        this.carros.data[dados.index] = dados.dados
+      }
+    },
+
+    created() {
+      bus.$on("transfereCarros", (todosCarros) => {
+        this.carros = todosCarros
+      })
+    },
+
+    computed: {
+      retornaCarros() {
+        return this.carros.data
+      },
     }
-  },
-
-  created() {
-    bus.$on("transfereCarros", (todosCarros) => {
-      this.carros = todosCarros
-    })
-  },
 }
-
 </script>
 
 <style>
-
   .lista-carros{
     background-color: rgb(223, 221, 221);
     /* height: 500px; */

@@ -1,28 +1,27 @@
 <template>
-
   <div class="container menu-area">
     <div class="row">
       <ul class="list-group list-group-horizontal lista-menu">
         <li class="list-group-item">
-           <router-link to="/">Home</router-link>
+           <router-link to="/">Página Home</router-link>
         </li>
         <li class="list-group-item">
            <router-link to="/Cadastrar">Cadastrar Veiculo</router-link>
         </li>
         <li class="list-group-item">
-           <router-link to="/Atualizar">Atualizar</router-link>
+           <router-link to="/Atualizar">Atualizar Veiculo</router-link>
         </li>
         <li class="list-group-item">
-           <router-link to="/listaCarros">Listar Carros</router-link>
+           <router-link to="/listaCarros">Listar Minha Frota de Veículos</router-link>
         </li>
-        <li class="list-group-item">Extra</li>
-        <li class="list-group-item">Extra</li>
       </ul>
     </div>
 
     <div class="row">
       <ul class="list-group list-group-horizontal lista-menu">
-        <li class="list-group-item">Home</li>
+        <li class="list-group-item">
+           <router-link to="/CadastroClientes">Cadastrar Clientes</router-link>
+        </li>
         <li class="list-group-item">Cadastrar Veiculo</li>
         <li class="list-group-item">Listar Carros</li>
         <li class="list-group-item">Atualizacao Rapida</li>
@@ -41,10 +40,8 @@ export default {
     msg: String
   },
   components: {},
-
 }
 </script>
-
 
 <style>
   .menu-area {
@@ -65,6 +62,4 @@ export default {
     justify-content: center;
     width: 100%;
   }
-
-
 </style>

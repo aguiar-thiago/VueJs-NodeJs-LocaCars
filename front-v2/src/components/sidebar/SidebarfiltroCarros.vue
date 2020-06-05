@@ -1,70 +1,75 @@
 <template>
-
-  <div class="filtro-sidebar" id="style-scroll">
-    <div class="container filtros">
-      <h2>Filtro</h2>
-      <form id="form" method="post" style="margin: 30px" v-on:submit="pesquisar()">
+  <div>
+    <div class="pesquisa-carro">
+      <form id="form" method="post" style="margin-top: 40px;margin-left: 45px" v-on:submit="pesquisar()">
         <button type="submit" class="btn btn-primary btn-lg btn-filtra-carros">Filtrar</button>
       </form>
+    </div>
 
-      <div class="container opcao-filtro marca">
-        <h3 class="titulo-filtro">Marca</h3>
-        <div class="col-md-12 row">
-          <div class="col-md-6" v-for="(mostraMarcaCarro, index) in mostraMarcaCarros" v-bind:key="mostraMarcaCarro">
-            <div class="col">
-              <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" v-bind:id="'customSwitch' + index" v-bind:value="mostraMarcaCarro" v-model="filtro_carros.marca">
-                <label class="custom-control-label" v-bind:for="'customSwitch' + index">{{mostraMarcaCarro}}</label>
+    <div class="filtro-sidebar" id="style-scroll">
+      <div class="container filtros">
+
+        <div class="container opcao-filtro marca">
+          <h3 class="titulo-filtro">Marca</h3>
+          <div class="col-md-12 row">
+            <div class="col-md-6" v-for="(mostraMarcaCarro, index) in getAtributosCarros('marca')" v-bind:key="mostraMarcaCarro">
+              <div class="col">
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" v-bind:id="'customSwitch' + index" v-bind:value="mostraMarcaCarro" v-model="filtro_carros.marca">
+                  <label class="custom-control-label" v-bind:for="'customSwitch' + index">{{mostraMarcaCarro}}</label>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="container opcao-filtro categoria">
-        <h3 class="titulo-filtro">Categoria</h3>
-        <div class="col-md-12 row">
-          <div class="col-md-6" v-for="(mostraCategoriaCarro, index) in mostraCategoriaCarros" v-bind:key="mostraCategoriaCarro">
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" v-bind:id="'customSwitch22'+ index" v-bind:value="mostraCategoriaCarro" v-model="filtro_carros.categoria">
-              <label class="custom-control-label" v-bind:for="'customSwitch2' + index">{{mostraCategoriaCarro}}</label>
+        <div class="container opcao-filtro categoria">
+          <h3 class="titulo-filtro">Categoria</h3>
+          <div class="col-md-12 row">
+            <div class="col-md-6" v-for="(mostraCategoriaCarro, index) in getAtributosCarros('categoria')" v-bind:key="mostraCategoriaCarro">
+              <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" v-bind:id="'customSwitch22'+ index" v-bind:value="mostraCategoriaCarro" v-model="filtro_carros.categoria">
+                <label class="custom-control-label" v-bind:for="'customSwitch22' + index">{{mostraCategoriaCarro}}</label>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="container opcao-filtro ano">
-        <h3 class="titulo-filtro">Intervalo De Valores</h3>
-        <div class="row">
-          <div class="col">
-            <input class="form-control form-control-sm" type="number" placeholder="Inicio" v-model="intervaloValores.inicial">
-          </div>
-          <div class="col">
-            <input class="form-control form-control-sm" type="number" placeholder="Final" v-model="intervaloValores.final">
+        <div class="container opcao-filtro ano">
+          <h3 class="titulo-filtro">Intervalo De Valores</h3>
+          <div class="row">
+            <div class="col">
+              <input class="form-control form-control-sm" type="number" placeholder="Inicio" v-model="intervaloValores.inicial">
+            </div>
+            <div class="col">
+              <input class="form-control form-control-sm" type="number" placeholder="Final" v-model="intervaloValores.final">
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="container opcao-filtro cor">
-        <h3 class="titulo-filtro">Cor do Veículo</h3>
+        <div class="container opcao-filtro cor">
+          <h3 class="titulo-filtro">Cor do Veículo</h3>
           <select class="custom-select" v-model="filtro_carros.cor">
-            <option value="Todas" selected="Todas">Todas</option>
-            <option value="preto">Preto</option>
-            <option value="branco">Branco</option>
-            <option value="cinza">Cinza</option>
-            <option value="chumbo">Chumbo</option>
-            <option value="vermelho">Vermelho</option>
+            <option 
+              v-for="mostraDados in getAtributosCarros('cor')"
+              v-bind:key="mostraDados"
+              :value="mostraDados"
+              style="text-transform: capitalize;">
+              {{mostraDados}}
+            </option>
           </select>
-      </div>
+        </div>
 
+      </div>
     </div>
   </div>
 
 </template>
 
 <script>
-import Carros from "../../service/carros.js"
-import { bus } from "../../main.js"
+  import Carros from "../../service/carros.js"
+  import { bus } from "../../main.js"
+  import funcs from "../../functions/Functions.js"
 
   export default {
     name: 'SidebarfiltroCarros',
@@ -78,16 +83,12 @@ import { bus } from "../../main.js"
           categoria: [],
           cor: ''
         },
-        mostraMarcaCarros : [
-          "Chevrolet", "Ford", "Woskvagem", "Honda", "Hyndai", "Toyota", "Renault", "Fiat"
-        ],
         mostraCategoriaCarros: [
           "Hatch", "Luxuoso", "Simples", "SUV"
         ],
         resultado: [],
         whereControle: '',
         where: "",
-        teste: '',
         arrDadosEnvio: [],
         intervaloValores : {
           inicial : 0,
@@ -149,9 +150,13 @@ import { bus } from "../../main.js"
         bus.$emit("transfereCarros", carros)
       },
 
+      getAtributosCarros: function (propriedade) {
+        if(propriedade == 'marca')     return funcs.getCarrosMarcas();
+        if(propriedade == 'cor')       return funcs.getCarrosCor();
+        if(propriedade == 'categoria') return funcs.getCarrosCategorias();
+      }
     }
-
-  }
+}
 
 </script>
 
@@ -160,10 +165,10 @@ import { bus } from "../../main.js"
 .filtro-sidebar {
   float: left;
   position: fixed;
-  top: 50px;
+  top: 170px;
   height: 95%;
   width: 22%;
-  background: #F5F5F5;
+  background: rgb(255, 255, 255);
   overflow-y: scroll;
   overflow-x: hidden;
   white-space: nowrap;
@@ -175,8 +180,8 @@ import { bus } from "../../main.js"
 }
 
 .filtros {
-  background-color: rgb(241, 241, 241);
-  height: 1400px;
+  background-color: rgb(255, 255, 255);
+  height: 2400px;
 }
 
 .opcao-filtro {
@@ -222,5 +227,11 @@ import { bus } from "../../main.js"
   background-color: rgb(134, 134, 134);
 }
 
+.pesquisa-carro {
+  width: 20%;
+  background-color: rgb(255, 255, 255);
+  position: fixed;
+
+}
 
 </style>

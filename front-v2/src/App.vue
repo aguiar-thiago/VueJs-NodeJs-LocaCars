@@ -7,12 +7,12 @@
 </template>
 
 <style lang="scss">
-body{
-    width: 100%;
-    height: 100vh;
-    // background-color: #4a4858;
-    background-color: #fdfdfd;
-}
+  body{
+      width: 100%;
+      height: 100vh;
+      // background-color: #4a4858;
+      background-color: #fdfdfd;
+  }
   #app {
     font-family: '', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
