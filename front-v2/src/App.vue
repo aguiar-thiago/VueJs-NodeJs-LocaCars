@@ -9,7 +9,7 @@
 <style lang="scss">
   body{
       width: 100%;
-      height: 100vh;
+      height: 91vh;
       // background-color: #4a4858;
       background-color: #fdfdfd;
   }

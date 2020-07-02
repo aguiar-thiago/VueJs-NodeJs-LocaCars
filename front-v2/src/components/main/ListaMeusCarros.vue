@@ -1,10 +1,11 @@
 <template>
   <div class="container lista-carros">
+    <h1 class="texto-carro-encontrado" v-if="carros.data && carros.data != ''" >Carros Encontrados</h1>
     <div id="row-cards" class="col-md-12 row">
       <div class="col-md-4" v-for="(carro, index) in retornaCarros" v-bind:key="carro.placa">
         <div class="card">
-          <img class="card-img-top img-carro" src="../../icones/iconeCarro.png" alt="Card image cap">
-          <div class="card-body" style="margin-top: 30px">
+          <img  class="img-fluid img-carro" alt="Responsive image" :src="require(`../../icones/logo-carros/${carro.marca}.png`)">
+          <div class="card-body" style="margin-top: 20px">
             <h3 class="card-title" style="text-transform: capitalize; color: white; text-align: left">{{carro.marca}} {{carro.nome}}</h3>
 
             <div class="row">
@@ -90,7 +91,7 @@
         console.log(dados)
         console.log(this.carros.data[dados.index])
         this.carros.data[dados.index] = dados.dados
-      }
+      },
     },
 
     created() {
@@ -103,14 +104,18 @@
       retornaCarros() {
         return this.carros.data
       },
-    }
+
+      diretorioFotos() {
+        return"../../icones/logo-carros/toyota.png"
+      }
+    },
 }
 </script>
 
 <style>
+
   .lista-carros{
-    background-color: rgb(223, 221, 221);
-    /* height: 500px; */
+    background-color: rgb(255, 255, 255);
     width: 76%;
     float: right;
     margin-right: 20px;
@@ -123,11 +128,17 @@
     margin: 20px;
     background-color: rgb(31, 29, 29);
     border-radius: 10px;
+    border-color: rgb(44, 44, 44);
+    border-width: 6px;
   }
 
   .img-carro {
     background-color: transparent;
-    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 200px;
+    width: 238px;
+    margin: auto;
   }
 
   .detalhe-carro {
@@ -155,6 +166,13 @@
   .label-km {
     padding: 3px;
     color: rgb(255, 255, 255);
+  }
+
+  .texto-carro-encontrado {
+    color: #080808;
+    margin-top: -48px;
+    background-color: #ebebeb;
+
   }
 
 </style>

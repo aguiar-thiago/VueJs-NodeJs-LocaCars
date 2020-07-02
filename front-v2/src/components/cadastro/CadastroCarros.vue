@@ -2,8 +2,8 @@
   <form method="post" class="container cadastro-carro">
     <FormCarro v-bind:dadosCarro="carro" ambiente="cadastrar"></FormCarro>
     <div class="form-group col">
-      <button class="btn btn-dark btn-lg" type="button" @click="salvar(carro)">Salvar</button>
-      <button class="btn btn-primary btn-lg" type="button" @click="carro = {}">Limpar Campos</button>
+      <button class="btn btn-info btn-lg" type="button" @click="salvar(carro)">Salvar</button>
+      <button class="btn btn-warning btn-lg" type="button" @click="carro = {}">Limpar Campos</button>
     </div>
   </form>
 </template>
@@ -75,11 +75,13 @@
   }
 
   .container {
-    background-color: #c2efc6;
+    background-color: rgb(51, 51, 51);
+    color: white;
+    font-size: 20px;
   }
 
   .btn {
-    margin-top: 47px;
+    /* margin-top: 47px; */
     margin-left: 60px;
   }
 </style>

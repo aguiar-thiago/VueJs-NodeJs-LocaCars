@@ -12,21 +12,8 @@
            <router-link to="/Atualizar">Atualizar Veiculo</router-link>
         </li>
         <li class="list-group-item">
-           <router-link to="/listaCarros">Listar Minha Frota de Veículos</router-link>
+           <router-link to="/listaCarros">Consultar Veículos</router-link>
         </li>
-      </ul>
-    </div>
-
-    <div class="row">
-      <ul class="list-group list-group-horizontal lista-menu">
-        <li class="list-group-item">
-           <router-link to="/CadastroClientes">Cadastrar Clientes</router-link>
-        </li>
-        <li class="list-group-item">Cadastrar Veiculo</li>
-        <li class="list-group-item">Listar Carros</li>
-        <li class="list-group-item">Atualizacao Rapida</li>
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Morbi leo risus</li>
       </ul>
     </div>
   </div>

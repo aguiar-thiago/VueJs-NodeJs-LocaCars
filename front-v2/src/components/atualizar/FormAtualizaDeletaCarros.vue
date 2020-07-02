@@ -123,7 +123,9 @@ export default {
   }
 
   .container {
-    background-color: #c2efc6;
+    background-color: rgb(51, 51, 51);
+    font-size: 20px;
+    color: white;
   }
 
   .control-label {

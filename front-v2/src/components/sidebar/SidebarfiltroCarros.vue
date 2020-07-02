@@ -181,11 +181,13 @@
 
 .filtros {
   background-color: rgb(255, 255, 255);
-  height: 2400px;
+  height: 2000px;
 }
 
 .opcao-filtro {
-  background-color: rgb(178, 228, 186);
+  background-color: rgb(51, 51, 51);
+  color: white;
+  text-transform: capitalize;
   padding: 15px;
   border-radius: 15px;
   text-align: left;
@@ -195,8 +197,7 @@
   font-size: 20px;
 }
 
-.titulo-filtro {
-  font-weight: bold;
+.titulo-filtro {  
   text-align: center;
   font-size: 25px;
   padding-top: 10px;

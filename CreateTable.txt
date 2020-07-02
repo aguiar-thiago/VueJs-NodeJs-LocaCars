@@ -1,14 +1,17 @@
 CREATE TABLE `tb_carros` (
-	`placa` VARCHAR(10) NOT NULL,
-	`marca` VARCHAR(40) NULL DEFAULT NULL,
-	`cor` VARCHAR(20) NULL DEFAULT NULL,
-	`nome` VARCHAR(30) NULL DEFAULT NULL,
-	`ano` VARCHAR(50) NULL DEFAULT NULL,
-	`situacao` VARCHAR(10) NULL DEFAULT 'L',
-	`valor_reserva` DOUBLE NULL DEFAULT NULL,
-	`categoria` VARCHAR(50) NULL DEFAULT NULL,
-	`descricao` VARCHAR(120) NULL DEFAULT NULL,
-	PRIMARY KEY (`placa`)
+	`placa` VARCHAR(10) NOT NULL COLLATE 'latin1_swedish_ci',
+	`marca` VARCHAR(40) NULL DEFAULT NULL COLLATE 'latin1_swedish_ci',
+	`cor` VARCHAR(20) NULL DEFAULT NULL COLLATE 'latin1_swedish_ci',
+	`nome` VARCHAR(30) NULL DEFAULT NULL COLLATE 'latin1_swedish_ci',
+	`ano` VARCHAR(50) NULL DEFAULT NULL COLLATE 'latin1_swedish_ci',
+	`situacao` VARCHAR(10) NULL DEFAULT 'L' COLLATE 'latin1_swedish_ci',
+	`valor_reserva` DOUBLE(22,0) NULL DEFAULT NULL,
+	`categoria` VARCHAR(50) NULL DEFAULT NULL COLLATE 'latin1_swedish_ci',
+	`descricao` VARCHAR(120) NULL DEFAULT NULL COLLATE 'latin1_swedish_ci',
+	`qtd_lugares` INT(11) NULL DEFAULT NULL,
+	`km` INT(11) NULL DEFAULT NULL,
+	`cambio` VARCHAR(50) NULL DEFAULT NULL COLLATE 'latin1_swedish_ci',
+	PRIMARY KEY (`placa`) USING BTREE
 )
 COLLATE='latin1_swedish_ci'
 ENGINE=MyISAM

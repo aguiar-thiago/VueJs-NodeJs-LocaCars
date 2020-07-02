@@ -1,25 +1,23 @@
 <template>
   <div>
     <button class="btn btn-primary" v-on:click="abreModal()" type="button">Editar</button>
-    <div class="modal fade show" v-bind:style="'display:' + (modal ? 'block' : 'none')">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content show modal-dados-carro">
+    <div class="modal fade show desfocar-fundo" v-bind:style="'display:' + (modal ? 'block' : 'none')">
+      <div class="modal-dialog">
+        <div class="modal-content modal-dados-carro">
           <div class="modal-header">
-            <h5 class="modal-title">Locadora de Veículos</h5>
+            <h5 class="modal-title">LocaCars</h5>
             <button type="button" class="close" v-on:click="abreModal()">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <h2>Atualize os dados do veículo agora</h2>
-            <form method="put" class="container form-atualiza-dados">
-              <FormCarro v-bind:dadosCarro="carro.dados" ambiente="cadastrar"></FormCarro>
-              <button class="btn btn-primary" @click.stop.prevent="atualizar(carro)" type="button" style="margin: 10px;">Editar</button>
-            </form>
+            <FormCarro v-bind:dadosCarro="carro.dados" ambiente="cadastrar"></FormCarro>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" @click="abreModal()">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <form method="put">
+              <button class="btn btn-info" style="margin-right: 10px;" @click.stop.prevent="atualizar(carro)" type="button">Editar</button>
+              <button type="button" class="btn btn-secondary" @click="abreModal()">Fechar</button>
+            </form>
           </div>
         </div>
       </div>
@@ -58,6 +56,12 @@ import funcs  from '../../functions/Functions.js'
     methods: {
       abreModal() {
         this.modal = !this.modal;
+
+        if (this.modal) {
+          document.body.style.overflow='hidden'
+        } else {
+          document.body.style.overflow='scroll'
+        }
       },
 
       async atualizar (carro) {
@@ -92,14 +96,28 @@ import funcs  from '../../functions/Functions.js'
     width: 1200px;
     height: 880px;
     right: 210px;
-    top: 37px;
+    top: 20px;
   }
 
   .modal-header, .modal-footer {
-    background-color: #21dc9e;
+    background-color: #1f1f1f;
+    color: white;
   }
   .modal-body{
-    background-color: #ccc8c8;
+    background-color: #333333;
   }
 
+  .modal.show .modal-dialog {
+    top: -53px;
+    right: 66px;
+  }
+
+  .desfocar-fundo{
+    display: none;
+    backdrop-filter: blur(4px);
+  }
+
+  .modal-footer{
+    justify-content: center;
+  }
 </style>
