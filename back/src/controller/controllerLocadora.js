@@ -35,5 +35,6 @@ module.exports = {
       if (err) res.json(err)
       res.json(result)
     })
-  }
+  },
+
 }

@@ -3,7 +3,7 @@
     <div class="row">
       <ul class="list-group list-group-horizontal lista-menu">
         <li class="list-group-item">
-           <router-link to="/">Página Home</router-link>
+           <router-link to="/Home">Página Home</router-link>
         </li>
         <li class="list-group-item">
            <router-link to="/Cadastrar">Cadastrar Veiculo</router-link>

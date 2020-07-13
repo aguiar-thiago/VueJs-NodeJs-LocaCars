@@ -56,12 +56,6 @@ import funcs  from '../../functions/Functions.js'
     methods: {
       abreModal() {
         this.modal = !this.modal;
-
-        if (this.modal) {
-          document.body.style.overflow='hidden'
-        } else {
-          document.body.style.overflow='scroll'
-        }
       },
 
       async atualizar (carro) {

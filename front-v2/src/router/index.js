@@ -5,12 +5,18 @@ import Cadastrar from '../views/CadastrarCarros.vue'
 import AtualizaDeletaCarros from '../views/AtualizaDeletaCarros.vue'
 import TodosMeusCarros from '../views/TodosMeusCarros.vue'
 import CadastrarClientes from '../views/CadastrarClientes.vue'
+import Login from '../views/Login.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/Home',
     name: 'Home',
     component: Home
   },

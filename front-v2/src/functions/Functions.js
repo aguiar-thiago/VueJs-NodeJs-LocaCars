@@ -59,6 +59,21 @@ module.exports = {
     return true
   },
 
+  validaCamposLogin: async function(dados) {
+
+    if (!dados.email) {
+      alert("O campo `Email` não pode ser vazio");
+      return false
+    }
+
+    if (!dados.senha) {
+      alert("O campo `senha` não pode ser vazio");
+      return false
+    }
+
+    return true
+  },
+
   getCarrosMarcas: function() {
     const marcas = Array(
       "agrale", "aston martin","audi","bmw","byd","caoa chery","changan","chevrolet",

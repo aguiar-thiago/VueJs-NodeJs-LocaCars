@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ImagemFundo class="cards"/>
+    <ImagemFundo class="cards" nomeImagem="carroFundo"/>
     <Header/>
     <MensagemEmpresa/>
     <CardsHome/>
