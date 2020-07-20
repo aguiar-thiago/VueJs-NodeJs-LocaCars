@@ -1,32 +1,36 @@
 <template>
-  <div id="home">
+  <div>
+    <ImagemFundo class="cards" nomeImagem="carroFundo"/>
     <Header/>
-    <Main/>
+    <MensagemEmpresa/>
+    <CardsHome/>
+    <RodapeHome/>
   </div>
 </template>
 
 <script>
-import Header from './../components/header/Header.vue'
-import Main from './../components/main/Main.vue'
+  import Header from '../components/header/Header.vue'
+  import CardsHome from '../components/main/CardsHome.vue'
+  import RodapeHome from '../components/main/RodapeHome.vue'
+  import MensagemEmpresa from '../components/main/MensagemEmpresa.vue'
+  import ImagemFundo from '../components/main/ImagemFundo.vue'
 
-export default {
-  name: 'Home',
-  components: {Header, Main},
-}
+  export default {
+    name: 'Home',
+    props: {
+      msg: String
+    },
+    components: {Header, CardsHome, ImagemFundo, MensagemEmpresa, RodapeHome},
+  }
 </script>
 
-<style>
-
-html, body{
-  margin: 0;
-}
-#home {
-  height: 100vh;
-  width: 100vw;
-  font-family: '', Helvetica, Arial, sans-serif;
-  height: 100vh;
-  margin: 0;
-}
-
+<style scoped>
+  .cards {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
+  * {
+    overflow:hidden;
+  }
 </style>
-

@@ -2,7 +2,7 @@
   <form method="put" class="container form-atualiza-dados" v-on:submit="pesquisar(carro.filtro)">
     <div class="row justify-content-center buscar-carro">
       <div class="form-group col-7">
-        <h3>Placa do Véiculo</h3>
+        <h3>Placa do Veículo</h3>
         <input type="text" class="form-control " id="placaVeiculo" v-model="carro.filtro.placa">
       </div>
 

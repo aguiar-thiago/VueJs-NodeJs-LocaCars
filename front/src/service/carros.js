@@ -9,6 +9,10 @@ export default {
     return http.post('Pesquisar', filtro)
   },
 
+  pesquisarwhereFixo: (filtro) => {
+    return http.post('PesquisarWhereFixo', filtro)
+  },
+
   atualizar: (carro) => {
     return http.put('Atualizar', carro)
   },

@@ -1,6 +1,6 @@
 <template>
   <div class="container lista-carros">
-    <h1 class="texto-carro-encontrado" v-if="carros.data && carros.data != ''" >Carros Encontrados</h1>
+    <h1 class="texto-carro-encontrado" v-if="carros.data && carros.data != ''" >{{qtdCarros}} Carros encontrados</h1>
     <div id="row-cards" class="col-md-12 row">
       <div class="col-md-4" v-for="(carro, index) in retornaCarros" v-bind:key="carro.placa">
         <div class="card">
@@ -82,7 +82,8 @@
 
     data: function() {
       return {
-        carros: {}
+        carros: {},
+        qtdCarros: 0
       }
     },
 
@@ -97,6 +98,7 @@
     created() {
       bus.$on("transfereCarros", (todosCarros) => {
         this.carros = todosCarros
+        this.qtdCarros = Object.keys(this.carros.data).length
       })
     },
 
@@ -104,10 +106,6 @@
       retornaCarros() {
         return this.carros.data
       },
-
-      diretorioFotos() {
-        return"../../icones/logo-carros/toyota.png"
-      }
     },
 }
 </script>

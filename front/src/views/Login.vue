@@ -3,11 +3,11 @@
     <div class="row login">
       <div style="width: 465px;" class="img-logo-empresa">
         <img class="img" src="../icones/logo-empresa.png">
-        <h3 class="msg-principal">LocaCars, encontre seu melhor <br> carro no menor preço.</h3>
+        <h3 class="msg-principal">LocaCars, encontre seu melhor <br> carro no melhor preço.</h3>
         <h6 class="msg-rodape">Este sistema tem todos os requisitos <br> de segurança desejado</h6>
       </div>
 
-      <form>
+      <div class="container-acesso">
         <div class="infos">
           <h2>Acesso ao Sistema</h2>
         </div>
@@ -17,16 +17,16 @@
         </li>           
 
         <div class="form-group">
-          <label style="margin-top: 100px;" class="label-principal" for="exampleInputEmail1">Email de Acesso</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" v-model="dados.email"  placeholder="Email">
-
+          <label style="margin-top: 100px;" class="label-principal">Email de Acesso</label>
+          <input type="text" class="form-control"  v-model="dados.email"  placeholder="Login">
         </div>
+        
         <div class="form-group">
           <label class="label-principal" for="exampleInputPassword1">Senha</label>
           <input type="password" class="form-control" v-model="dados.senha" id="exampleInputPassword1" placeholder="Senha">
         </div>
-        <button type="submit" @click="validaDados()" class="btn btn-primary">Entrar</button>
-      </form>      
+        <button type="submit" @click="validaDados()" class="btn btn-primary btn-logar">Entrar</button>
+      </div>      
     </div>
     </div>
 </template>
@@ -91,7 +91,7 @@ export default {
     z-index: 99;
   }
 
-  form {
+  .container-acesso {
     width: 784px;
     margin: 1px 0px 0px 0px;
     background-color: #efefef;
@@ -125,6 +125,11 @@ export default {
 
   .msg-rodape {
     margin-top: 300px;
+  }
+
+  .btn-logar {
+    margin-top: 53px;
+    width: 164px;
   }
 
 </style>
